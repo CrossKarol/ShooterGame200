@@ -12,7 +12,7 @@ namespace ShooterGame200
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        //Jak wyżej
         World world;
 
         public Main()
