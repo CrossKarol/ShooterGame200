@@ -22,5 +22,7 @@ namespace ShooterGame200
 
         public static ContentManager content;
         public static SpriteBatch spriteBatch;
+
+        public static McKeyboard keyboard;
     }
 }

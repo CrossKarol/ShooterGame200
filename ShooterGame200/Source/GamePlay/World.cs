@@ -19,11 +19,11 @@ namespace ShooterGame200
 {
     public class World
     {
-        public Basic2D hero;
+        public Hero hero;
 
         public World()
         {
-            hero = new Basic2D("2D\\Hero", new Vector2(300, 300), new Vector2(48, 48));
+            hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(48, 48));
         }
 
         public virtual void Update()

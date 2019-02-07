@@ -45,7 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Engine\Basic2D.cs" />
     <Compile Include="Source\Engine\Globals.cs" />
-    <Compile Include="Source\World.cs" />
+    <Compile Include="Source\Engine\Input\Keyboard\McKey.cs" />
+    <Compile Include="Source\Engine\Input\McKeyboard.cs" />
+    <Compile Include="Source\GamePlay\World.cs" />
+    <Compile Include="Source\GamePlay\World\Hero.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

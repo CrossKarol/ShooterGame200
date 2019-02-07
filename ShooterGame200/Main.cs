@@ -46,6 +46,8 @@ namespace ShooterGame200
 
             // TODO: use this.Content to load your game content here
 
+            Globals.keyboard = new McKeyboard();
+
             world = new World();
         }
 
@@ -69,9 +71,12 @@ namespace ShooterGame200
                 Exit();
 
             // TODO: Add your update logic here
+            Globals.keyboard.Update();
 
             world.Update();
 
+
+            Globals.keyboard.UpdateOld();
             base.Update(gameTime);
         }
 
