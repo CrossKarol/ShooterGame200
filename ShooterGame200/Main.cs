@@ -2,17 +2,20 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace ShooterGame200
 {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class Main : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public Game1()
+        World world;
+
+        public Main()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -38,9 +41,12 @@ namespace ShooterGame200
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            Globals.content = this.Content;
+            Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+
+            world = new World();
         }
 
         /// <summary>
@@ -64,6 +70,8 @@ namespace ShooterGame200
 
             // TODO: Add your update logic here
 
+            world.Update();
+
             base.Update(gameTime);
         }
 
@@ -77,7 +85,32 @@ namespace ShooterGame200
 
             // TODO: Add your drawing code here
 
+            Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+
+            world.Draw();
+
+
+
+            Globals.spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }
+#if WINDOWS || LINUX
+    /// <summary>
+    /// The main class.
+    /// </summary>
+    public static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+
+        static void Main()
+        {
+            using (var game = new Main())
+                game.Run();
+        }
+    }
+#endif
 }
