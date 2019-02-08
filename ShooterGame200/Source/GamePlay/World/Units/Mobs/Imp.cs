@@ -18,29 +18,18 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
-    public class Unit : Basic2D
+    public class Imp : Mob
     {
-        public bool dead;
 
-        public float speed, hitDist;
-
-        public Unit(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
+        public Imp(Vector2 POS) : base("2D\\Units\\Mobs\\Imp", POS, new Vector2(40, 40))
         {
-            dead = false;
             speed = 2.0f;
-
-            hitDist = 35.0f;
         }
 
-        public override void Update(Vector2 OFFSET)
+        public override void Update(Vector2 OFFSET, Hero HERO)
         {
-            base.Update(OFFSET);
-        }
 
-        public virtual void GetHit()
-        {
-            dead = true;
-
+            base.Update(OFFSET, HERO);
         }
 
         public override void Draw(Vector2 OFFSET)

@@ -39,6 +39,20 @@ namespace ShooterGame200
             return (float)Math.Sqrt(Math.Pow(pos.X - target.X, 2) + Math.Pow(pos.Y - target.Y, 2));
         }
 
+        public static Vector2 RadialMovement(Vector2 focus, Vector2 pos, float speed)
+        {
+            float dist = Globals.GetDistance(pos, focus);
+
+            if (dist <= speed)
+            {
+                return focus - pos;
+            }
+            else
+            {
+                return (focus - pos) * speed / dist;
+            }
+        }
+
         public static float RotateTowards(Vector2 Pos, Vector2 focus)
         {
 

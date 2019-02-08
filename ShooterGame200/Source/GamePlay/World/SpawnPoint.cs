@@ -18,22 +18,30 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
-    public class Unit : Basic2D
+    public class SpawnPoint : Basic2D
     {
         public bool dead;
 
         public float speed, hitDist;
 
-        public Unit(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
+        public McTimer spawnTimer = new McTimer(2200);
+
+        public SpawnPoint(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
         {
             dead = false;
-            speed = 2.0f;
 
             hitDist = 35.0f;
         }
 
         public override void Update(Vector2 OFFSET)
         {
+            spawnTimer.UpdateTimer();
+            if(spawnTimer.Test())
+            {
+                SpawnMob();
+                spawnTimer.ResetToZero();
+            }
+
             base.Update(OFFSET);
         }
 
@@ -41,6 +49,11 @@ namespace ShooterGame200
         {
             dead = true;
 
+        }
+
+        public virtual void SpawnMob()
+        {
+            GameGlobals.PassMob(new Imp(new Vector2(pos.X, pos.Y)));
         }
 
         public override void Draw(Vector2 OFFSET)

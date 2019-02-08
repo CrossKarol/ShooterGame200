@@ -35,7 +35,7 @@ namespace ShooterGame200
 
         }
 
-        public virtual void Update()
+        public virtual void Update(Vector2 OFFSET)
         {
 
         }
