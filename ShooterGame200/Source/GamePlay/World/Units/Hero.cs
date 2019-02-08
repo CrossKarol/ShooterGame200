@@ -25,6 +25,9 @@ namespace ShooterGame200
         public Hero(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
         {
             speed = 2.0f;
+
+            health = 5;
+            healthMax = health;
         }
 
         public override void Update(Vector2 OFFSET)

@@ -22,12 +22,15 @@ namespace ShooterGame200
     {
         public bool dead;
 
-        public float speed, hitDist;
+        public float speed, hitDist, health, healthMax;
 
         public Unit(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
         {
             dead = false;
             speed = 2.0f;
+
+            health = 1;
+            healthMax = health;
 
             hitDist = 35.0f;
         }
@@ -37,10 +40,14 @@ namespace ShooterGame200
             base.Update(OFFSET);
         }
 
-        public virtual void GetHit()
+        public virtual void GetHit(float DAMAGE)
         {
-            dead = true;
+            health -= DAMAGE;
+            if (health <= 0)
+            {
 
+                dead = true;
+            }
         }
 
         public override void Draw(Vector2 OFFSET)

@@ -37,6 +37,13 @@ namespace ShooterGame200
         {
             pos += Globals.RadialMovement(HERO.pos, pos, speed);
             rot = Globals.RotateTowards(pos, HERO.pos);
+
+
+            if(Globals.GetDistance(pos, HERO.pos) < 15)
+            {
+                HERO.GetHit(1);
+                dead = true;
+            }
         }
 
 

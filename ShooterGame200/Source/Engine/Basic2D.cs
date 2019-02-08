@@ -48,11 +48,11 @@ namespace ShooterGame200
             }
         }
 
-        public virtual void Draw(Vector2 OFFSET, Vector2 ORIGIN )
+        public virtual void Draw(Vector2 OFFSET, Vector2 ORIGIN, Color COLOR)
         {
             if (myModel != null)
             {
-                Globals.spriteBatch.Draw(myModel, new Rectangle((int)(pos.X + OFFSET.X), (int)(pos.Y + OFFSET.Y), (int)dims.X, (int)dims.Y), null, Color.White, rot, new Vector2(ORIGIN.X, ORIGIN.Y), new SpriteEffects(), 0);
+                Globals.spriteBatch.Draw(myModel, new Rectangle((int)(pos.X + OFFSET.X), (int)(pos.Y + OFFSET.Y), (int)dims.X, (int)dims.Y), null, COLOR, rot, new Vector2(ORIGIN.X, ORIGIN.Y), new SpriteEffects(), 0);
             }
         }
     }
