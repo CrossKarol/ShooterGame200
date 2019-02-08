@@ -12,8 +12,8 @@ namespace ShooterGame200
     {
         GraphicsDeviceManager graphics;
         //SpriteBatch spriteBatch;
-        
-        World world;
+
+        GamePlay gamePlay;
 
         Basic2D cursor;
 
@@ -61,7 +61,7 @@ namespace ShooterGame200
             Globals.keyboard = new McKeyboard();
             Globals.mouse = new McMouseControl();
 
-            world = new World();
+            gamePlay = new GamePlay();
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace ShooterGame200
             Globals.keyboard.Update();
             Globals.mouse.Update();
 
-            world.Update();
+            gamePlay.Update();
 
 
             Globals.keyboard.UpdateOld();
@@ -108,7 +108,7 @@ namespace ShooterGame200
 
             Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
-            world.Draw(Vector2.Zero);
+            gamePlay.Draw();
 
             cursor.Draw(new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y), new Vector2(0,0), Color.White);
             Globals.spriteBatch.End();

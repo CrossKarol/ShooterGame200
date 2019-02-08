@@ -41,6 +41,13 @@ namespace ShooterGame200
             Globals.spriteBatch.DrawString(font, tempStr,new Vector2(Globals.screenWidth/2 - strDims.X/2, Globals.screenHeight - 40), Color.Black);
 
             healthBar.Draw(new Vector2(20, Globals.screenHeight - 50));
+
+            if (WORLD.hero.dead)
+            {
+                tempStr = "Press Enter to Restart!" ;
+                strDims = font.MeasureString(tempStr);
+                Globals.spriteBatch.DrawString(font, tempStr, new Vector2(Globals.screenWidth / 2 - strDims.X / 2, Globals.screenHeight/2), Color.Black);
+            }
         }
     }
 }

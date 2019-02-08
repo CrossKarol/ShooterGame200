@@ -51,6 +51,7 @@
     <Compile Include="Source\Engine\Input\McMouseControl.cs" />
     <Compile Include="Source\Engine\McTimer.cs" />
     <Compile Include="Source\Engine\Output\QuantityDisplayBar.cs" />
+    <Compile Include="Source\GamePlay.cs" />
     <Compile Include="Source\GamePlay\World.cs" />
     <Compile Include="Source\GamePlay\World\Projectile2d.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\Fireball.cs" />
