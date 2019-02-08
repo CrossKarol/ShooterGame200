@@ -37,6 +37,7 @@ namespace ShooterGame200
 
             GameGlobals.PassProjectile = AddProjectile;
             GameGlobals.PassMob = AddMob;
+            GameGlobals.CheckScroll = CheckScroll;
 
             offset = new Vector2(0, 0);
 
@@ -98,9 +99,31 @@ namespace ShooterGame200
             projectiles.Add((Projectile2d)INFO);
         }
 
+        public virtual void CheckScroll(object INFO)
+        {
+            Vector2 tempPos = (Vector2)INFO;
+
+            if (tempPos.X < -offset.X + Globals.screenWidth * .4f)
+            {
+                offset = new Vector2(offset.X + hero.speed * 2, offset.Y);
+            }
+            if (tempPos.X > -offset.X + Globals.screenWidth * .6f)
+            {
+                offset = new Vector2(offset.X - hero.speed * 2, offset.Y);
+            }
+            if (tempPos.Y < -offset.Y + Globals.screenHeight * .4f)
+            {
+                offset = new Vector2(offset.X, offset.Y + hero.speed * 2);
+            }
+            if (tempPos.Y > -offset.Y + Globals.screenHeight * .6f)
+            {
+                offset = new Vector2(offset.X, offset.Y - hero.speed * 2);
+            }
+        }
+
         public virtual void Draw(Vector2 OFFSET)
         {
-            hero.Draw(OFFSET);
+            hero.Draw(offset);
 
             for (int i = 0; i < projectiles.Count; i++)
             {
