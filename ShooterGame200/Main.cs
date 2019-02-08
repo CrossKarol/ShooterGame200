@@ -33,6 +33,14 @@ namespace ShooterGame200
         {
             // TODO: Add your initialization logic here
 
+            Globals.screenWidth = 800;  //1600
+            Globals.screenHeight = 500; //900
+
+            graphics.PreferredBackBufferWidth = Globals.screenWidth;
+            graphics.PreferredBackBufferHeight = Globals.screenHeight;
+
+            graphics.ApplyChanges();
+
             base.Initialize();
         }
 
@@ -76,6 +84,7 @@ namespace ShooterGame200
                 Exit();
 
             // TODO: Add your update logic here
+            Globals.gameTime = gameTime;
             Globals.keyboard.Update();
             Globals.mouse.Update();
 
@@ -102,7 +111,6 @@ namespace ShooterGame200
             world.Draw(Vector2.Zero);
 
             cursor.Draw(new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y), new Vector2(0,0));
-
             Globals.spriteBatch.End();
 
             base.Draw(gameTime);

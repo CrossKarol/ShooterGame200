@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
-    public class Hero : Basic2D
+    public class Hero : Unit
     {
         public float speed;
 
@@ -47,6 +47,11 @@ namespace ShooterGame200
             }
 
             rot = Globals.RotateTowards(pos, new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y));
+
+            if(Globals.mouse.LeftClick())
+            {
+                GameGlobals.PassProjectile(new Fireball(new Vector2(pos.X, pos.Y), this, new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y)));
+            }
 
             base.Update();
         }

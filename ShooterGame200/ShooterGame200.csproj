@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameGlobals.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Engine\Basic2D.cs" />
@@ -48,8 +49,12 @@
     <Compile Include="Source\Engine\Input\Keyboard\McKey.cs" />
     <Compile Include="Source\Engine\Input\McKeyboard.cs" />
     <Compile Include="Source\Engine\Input\McMouseControl.cs" />
+    <Compile Include="Source\Engine\McTimer.cs" />
     <Compile Include="Source\GamePlay\World.cs" />
-    <Compile Include="Source\GamePlay\World\Hero.cs" />
+    <Compile Include="Source\GamePlay\World\Projectile2d.cs" />
+    <Compile Include="Source\GamePlay\World\Projectiles\Fireball.cs" />
+    <Compile Include="Source\GamePlay\World\Unit.cs" />
+    <Compile Include="Source\GamePlay\World\Units\Hero.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -69,6 +74,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\Misc\CursorArrow.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\Projectiles\Fireball.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

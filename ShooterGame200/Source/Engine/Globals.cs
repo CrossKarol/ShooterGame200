@@ -17,8 +17,13 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
+    public delegate void PassObject(object i);
+    public delegate object PassObjectAndReturn(object i);
+
+
+
     public class Globals
-    {
+    { 
         public static int screenHeight, screenWidth;
 
         public static ContentManager content;
@@ -26,6 +31,8 @@ namespace ShooterGame200
 
         public static McKeyboard keyboard;
         public static McMouseControl mouse;
+
+        public static GameTime gameTime;
 
         public static float GetDistance(Vector2 pos, Vector2 target)
         {

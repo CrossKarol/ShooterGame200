@@ -19,21 +19,47 @@ namespace ShooterGame200
 {
     public class World
     {
+        public Vector2 offset;
+
         public Hero hero;
+
+        public List<Projectile2d> projectiles = new List<Projectile2d>();
 
         public World()
         {
             hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(48, 48));
+
+            GameGlobals.PassProjectile = AddProjectile;
+
+            offset = new Vector2(0, 0);
+
         }
 
         public virtual void Update()
         {
             hero.Update();
+
+            for(int i =0; i < projectiles.Count; i++)
+            {
+                projectiles[i].Update(offset, null);
+               
+            }
+        }
+
+        public virtual void AddProjectile(object INFO)
+        {
+            projectiles.Add((Projectile2d)INFO);
         }
 
         public virtual void Draw(Vector2 OFFSET)
         {
             hero.Draw(OFFSET);
+
+            for (int i = 0; i < projectiles.Count; i++)
+            {
+                projectiles[i].Draw(offset);
+            }
+
         }
     }
 }
