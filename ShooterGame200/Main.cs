@@ -92,7 +92,7 @@ namespace ShooterGame200
 
 
             Globals.keyboard.UpdateOld();
-            Globals.keyboard.UpdateOld();
+            Globals.mouse.UpdateOld();
             base.Update(gameTime);
         }
 

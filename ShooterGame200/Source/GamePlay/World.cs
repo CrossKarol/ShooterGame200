@@ -27,7 +27,7 @@ namespace ShooterGame200
 
         public World()
         {
-            hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(48, 48));
+            hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(64, 64));
 
             GameGlobals.PassProjectile = AddProjectile;
 
@@ -39,10 +39,9 @@ namespace ShooterGame200
         {
             hero.Update();
 
-            for(int i =0; i < projectiles.Count; i++)
+            for (int i = 0; i < projectiles.Count; i++)
             {
                 projectiles[i].Update(offset, null);
-               
             }
         }
 
