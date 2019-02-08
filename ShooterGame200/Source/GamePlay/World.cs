@@ -19,9 +19,12 @@ namespace ShooterGame200
 {
     public class World
     {
+        public int numKilled;
         public Vector2 offset;
 
         public Hero hero;
+
+        public UI ui;
 
         public List<Projectile2d> projectiles = new List<Projectile2d>();
         public List<Mob> mobs = new List<Mob>();
@@ -29,6 +32,7 @@ namespace ShooterGame200
 
         public World()
         {
+            numKilled = 0;
             hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(64, 64));
 
             GameGlobals.PassProjectile = AddProjectile;
@@ -43,6 +47,8 @@ namespace ShooterGame200
 
             spawnPoints.Add(new SpawnPoint("2D\\Misc\\circle", new Vector2(Globals.screenWidth - 50, 50), new Vector2(35, 35)));
             spawnPoints[spawnPoints.Count - 1].spawnTimer.AddToTimer(1000);
+
+            ui = new UI();
 
 
         }
@@ -74,10 +80,12 @@ namespace ShooterGame200
 
                 if (mobs[i].dead)
                 {
+                    numKilled++;
                     mobs.RemoveAt(i);
                     i--;
                 }
             }
+            ui.Update(this);
         }
 
         public virtual void AddMob(object INFO)
@@ -108,7 +116,7 @@ namespace ShooterGame200
                 mobs[i].Draw(offset);
             }
 
-
+            ui.Draw(this);
 
         }
     }
