@@ -20,17 +20,17 @@ namespace ShooterGame200
     public class AIPlayer : Player
     {
 
-        public AIPlayer(int ID) 
-            : base(ID)
+        public AIPlayer(int ID, XElement DATA) 
+            : base(ID, DATA)
         {
 
-            spawnPoints.Add(new Portal(new Vector2(50, 50),  id));
+            //spawnPoints.Add(new Portal(new Vector2(50, 50),  id));
 
-            spawnPoints.Add(new Portal(new Vector2(Globals.screenWidth / 2, 50),  id));
-            spawnPoints[spawnPoints.Count - 1].spawnTimer.AddToTimer(500);
+            //spawnPoints.Add(new Portal(new Vector2(Globals.screenWidth / 2, 50),  id));
+            //spawnPoints[spawnPoints.Count - 1].spawnTimer.AddToTimer(500);
 
-            spawnPoints.Add(new Portal(new Vector2(Globals.screenWidth - 50, 50), id));
-            spawnPoints[spawnPoints.Count - 1].spawnTimer.AddToTimer(1000);
+            //spawnPoints.Add(new Portal(new Vector2(Globals.screenWidth - 50, 50), id));
+            //spawnPoints[spawnPoints.Count - 1].spawnTimer.AddToTimer(1000);
         }
 
         public override void Update(Player ENEMY, Vector2 OFFSET)

@@ -46,11 +46,10 @@ namespace ShooterGame200
             GameGlobals.PassSpawnPoint = AddSpawnPoint;
             GameGlobals.CheckScroll = CheckScroll;
 
-            user = new User(1);
-            aIPlayer = new AIPlayer(2);
 
             offset = new Vector2(0, 0);
 
+            LoadData(1);
 
             ui = new UI();
 
@@ -156,6 +155,29 @@ namespace ShooterGame200
             {
                 offset = new Vector2(offset.X, offset.Y - user.hero.speed * 2);
             }
+        }
+
+        public virtual void LoadData(int LEVEL)
+        {
+            XDocument xml = XDocument.Load("XML\\Levels\\Level"+LEVEL+".xml");
+
+
+            XElement tempElement = null;
+            if(xml.Element("Root").Element("User") != null)
+            {
+                tempElement = xml.Element("Root").Element("User");
+            }
+            user = new User(1, tempElement);
+
+
+
+            tempElement = null;
+            if (xml.Element("Root").Element("AIPlayer") != null)
+            {
+                tempElement = xml.Element("Root").Element("AIPlayer");
+            }
+            aIPlayer = new AIPlayer(2, tempElement);
+
         }
 
         public virtual void Draw(Vector2 OFFSET)
