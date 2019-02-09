@@ -18,35 +18,40 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
-    public class Mob : Unit
+    public class SpidderEggSac : SpawnPoint
     {
 
-        public Mob(string PATH, Vector2 POS, Vector2 DIMS, int OWNERID)
-            : base(PATH, POS, DIMS, OWNERID)
+        int maxSpawns, totalSpawns;
+
+        public SpidderEggSac(Vector2 POS, int OWNERID) 
+            : base("2D\\SpawnPoints\\EggSac", POS, new Vector2(45, 45), OWNERID)
         {
-            speed = 2.0f;
+            totalSpawns = 0;
+            maxSpawns = 3;
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY)
+        public override void Update(Vector2 OFFSET)
         {
-            AI(ENEMY.hero);
-
             base.Update(OFFSET);
         }
 
-        public virtual void AI(Hero HERO)
+
+        public override void SpawnMob()
         {
-            pos += Globals.RadialMovement(HERO.pos, pos, speed);
-            rot = Globals.RotateTowards(pos, HERO.pos);
+            Mob tempMob = new Spiderling(new Vector2(pos.X, pos.Y), ownerId);
 
 
-            if(Globals.GetDistance(pos, HERO.pos) < 15)
+            if (tempMob != null)
             {
-                HERO.GetHit(1);
-                dead = true;
+                GameGlobals.PassMob(tempMob);
+
+                totalSpawns++;
+                if(totalSpawns >= maxSpawns)
+                {
+                    dead = true;
+                }
             }
         }
-
 
         public override void Draw(Vector2 OFFSET)
         {

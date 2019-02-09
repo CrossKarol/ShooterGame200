@@ -18,21 +18,22 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
-    public class Unit : AttackableObject
+    public class Spiderling : Mob
     {
 
 
-        public Unit(string PATH, Vector2 POS, Vector2 DIMS, int OWNERID) 
-            : base(PATH, POS, DIMS, OWNERID)
-        {
+        public McTimer spawnTimer;
 
+        public Spiderling(Vector2 POS, int OWNERID) 
+            : base("2D\\Units\\Mobs\\Spider", POS, new Vector2(25, 25), OWNERID)
+        {
+            speed = 2.5f;
         }
 
         public override void Update(Vector2 OFFSET, Player ENEMY)
         {
-            base.Update(OFFSET);
+            base.Update(OFFSET, ENEMY);
         }
-
 
         public override void Draw(Vector2 OFFSET)
         {

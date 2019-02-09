@@ -19,15 +19,15 @@ namespace ShooterGame200
 {
     public class Player
     {
-
+        public int id;
         public Hero hero;
         public List<Unit> units = new List<Unit>();
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
 
-        public Player()
+        public Player(int ID)
         {
-
+            id = ID;
         }
 
         public virtual void Update(Player ENEMY, Vector2 OFFSET)
@@ -40,6 +40,13 @@ namespace ShooterGame200
             for (int i = 0; i < spawnPoints.Count; i++)
             {
                 spawnPoints[i].Update(OFFSET);
+
+                if (spawnPoints[i].dead)
+                {
+
+                    spawnPoints.RemoveAt(i);
+                    i--;
+                }
             }
 
             for (int i = 0; i < units.Count; i++)
@@ -57,7 +64,16 @@ namespace ShooterGame200
 
         public virtual void AddUnit(object INFO)
         {
-            units.Add((Unit)INFO);
+            Unit tempUnit = (Unit)INFO;
+            tempUnit.ownerId = id;
+            units.Add(tempUnit);
+        }
+
+        public virtual void AddSpawnPoint(object INFO)
+        {
+            SpawnPoint tempSpawnPoint = (SpawnPoint)INFO;
+            tempSpawnPoint.ownerId = id;
+            spawnPoints.Add(tempSpawnPoint);
         }
 
         public virtual void ChangeScore(int SCORE)

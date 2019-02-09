@@ -33,8 +33,8 @@ namespace ShooterGame200
         {
             // TODO: Add your initialization logic here
 
-            Globals.screenWidth = 800;  //1600
-            Globals.screenHeight = 500; //900
+            Globals.screenWidth = 1200;  //1600
+            Globals.screenHeight = 700; //900
 
             graphics.PreferredBackBufferWidth = Globals.screenWidth;
             graphics.PreferredBackBufferHeight = Globals.screenHeight;

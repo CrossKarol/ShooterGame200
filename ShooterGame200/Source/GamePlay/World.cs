@@ -42,10 +42,11 @@ namespace ShooterGame200
 
             GameGlobals.PassProjectile = AddProjectile;
             GameGlobals.PassMob = AddMob;
+            GameGlobals.PassSpawnPoint = AddSpawnPoint;
             GameGlobals.CheckScroll = CheckScroll;
 
-            user = new User();
-            aIPlayer = new AIPlayer();
+            user = new User(1);
+            aIPlayer = new AIPlayer(2);
 
             offset = new Vector2(0, 0);
 
@@ -92,12 +93,41 @@ namespace ShooterGame200
 
         public virtual void AddMob(object INFO)
         {
+
+            Unit tempUnit = (Unit)INFO;
+
+            if(user.id == tempUnit.ownerId)
+            {
+                user.AddUnit(tempUnit);
+            }
+            else if(aIPlayer.id == tempUnit.ownerId)
+            {
+                aIPlayer.AddUnit(tempUnit);  
+            }
+
             aIPlayer.AddUnit((Mob)INFO);
         }
 
         public virtual void AddProjectile(object INFO)
         {
             projectiles.Add((Projectile2d)INFO);
+        }
+
+
+        public virtual void AddSpawnPoint(object INFO)
+        {
+
+            SpawnPoint tempSpawnPoint = (SpawnPoint)INFO;
+
+            if (user.id == tempSpawnPoint.ownerId)
+            {
+                user.AddSpawnPoint(tempSpawnPoint);
+            }
+            else if (aIPlayer.id == tempSpawnPoint.ownerId)
+            {
+                aIPlayer.AddSpawnPoint(tempSpawnPoint);
+            }
+
         }
 
         public virtual void CheckScroll(object INFO)

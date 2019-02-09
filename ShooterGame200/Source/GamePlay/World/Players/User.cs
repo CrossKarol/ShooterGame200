@@ -20,9 +20,9 @@ namespace ShooterGame200
     public class User : Player
     {
 
-        public User() : base()
+        public User(int ID) : base(ID)
         {
-            hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(64, 64));
+            hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(64, 64), id);
         }
 
         public override void Update(Player ENEMY, Vector2 OFFSET)

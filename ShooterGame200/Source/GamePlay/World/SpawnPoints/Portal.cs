@@ -18,38 +18,40 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
-    public class SpawnPoint : AttackableObject
+    public class Portal : SpawnPoint
     {
 
-        public McTimer spawnTimer = new McTimer(2200);
 
-        public SpawnPoint(string PATH, Vector2 POS, Vector2 DIMS, int OWNERID) 
-            : base(PATH, POS, DIMS, OWNERID)
+        public Portal(Vector2 POS, int OWNERID) 
+            : base("2D\\SpawnPoints\\Portal", POS, new Vector2(45, 45), OWNERID)
         {
-            dead = false;
 
-            health = 3;
-            healthMax = health;
-
-            hitDist = 35.0f;
         }
 
         public override void Update(Vector2 OFFSET)
         {
-            spawnTimer.UpdateTimer();
-            if(spawnTimer.Test())
-            {
-                SpawnMob();
-                spawnTimer.ResetToZero();
-            }
-
             base.Update(OFFSET);
         }
 
 
-        public virtual void SpawnMob()
+        public override void SpawnMob()
         {
-            GameGlobals.PassMob(new Imp(new Vector2(pos.X, pos.Y), ownerId));
+            int num = Globals.rand.Next(0, 10 + 1);
+
+            Mob tempMob = null;
+
+            if(num < 5)
+            {
+                tempMob = new Imp(new Vector2(pos.X, pos.Y), ownerId);
+            }
+            else if(num < 8)
+            {
+                tempMob = new Spider(new Vector2(pos.X, pos.Y), ownerId);
+            }
+            if (tempMob != null)
+            {
+                GameGlobals.PassMob(tempMob);
+            }
         }
 
         public override void Draw(Vector2 OFFSET)

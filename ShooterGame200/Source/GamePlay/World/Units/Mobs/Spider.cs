@@ -18,38 +18,42 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
-    public class SpawnPoint : AttackableObject
+    public class Spider : Mob
     {
 
-        public McTimer spawnTimer = new McTimer(2200);
 
-        public SpawnPoint(string PATH, Vector2 POS, Vector2 DIMS, int OWNERID) 
-            : base(PATH, POS, DIMS, OWNERID)
+        public McTimer spawnTimer;
+
+        public Spider(Vector2 POS, int OWNERID) 
+            : base("2D\\Units\\Mobs\\Spider", POS, new Vector2(45, 45), OWNERID)
         {
-            dead = false;
-
+            speed = 1.5f;
             health = 3;
             healthMax = health;
 
-            hitDist = 35.0f;
+            spawnTimer = new McTimer(8000);
+            spawnTimer.AddToTimer(4000);
         }
 
-        public override void Update(Vector2 OFFSET)
+        public override void Update(Vector2 OFFSET, Player ENEMY)
         {
+
             spawnTimer.UpdateTimer();
-            if(spawnTimer.Test())
+            if (spawnTimer.Test())
             {
-                SpawnMob();
+
+                SpawnEggSac();
                 spawnTimer.ResetToZero();
             }
 
-            base.Update(OFFSET);
+
+            base.Update(OFFSET, ENEMY);
         }
 
 
-        public virtual void SpawnMob()
+        public virtual void SpawnEggSac()
         {
-            GameGlobals.PassMob(new Imp(new Vector2(pos.X, pos.Y), ownerId));
+            GameGlobals.PassSpawnPoint(new SpidderEggSac(new Vector2(pos.X, pos.Y), ownerId));
         }
 
         public override void Draw(Vector2 OFFSET)

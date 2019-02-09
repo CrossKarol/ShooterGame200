@@ -21,7 +21,8 @@ namespace ShooterGame200
     public class Imp : Mob
     {
 
-        public Imp(Vector2 POS) : base("2D\\Units\\Mobs\\Imp", POS, new Vector2(40, 40))
+        public Imp(Vector2 POS, int OWNERID) 
+            : base("2D\\Units\\Mobs\\Imp", POS, new Vector2(40, 40), OWNERID)
         {
             speed = 2.0f;
         }
