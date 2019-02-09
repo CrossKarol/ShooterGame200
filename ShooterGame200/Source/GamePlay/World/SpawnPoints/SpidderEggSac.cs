@@ -23,8 +23,8 @@ namespace ShooterGame200
 
         int maxSpawns, totalSpawns;
 
-        public SpidderEggSac(Vector2 POS, int OWNERID) 
-            : base("2D\\SpawnPoints\\EggSac", POS, new Vector2(45, 45), OWNERID)
+        public SpidderEggSac(Vector2 POS, int OWNERID, XElement DATA) 
+            : base("2D\\SpawnPoints\\EggSac", POS, new Vector2(45, 45), OWNERID, DATA)
         {
             totalSpawns = 0;
             maxSpawns = 3;

@@ -111,10 +111,15 @@ namespace ShooterGame200
             List<XElement> spawnList = (from t in DATA.Descendants("SpawnPoint")
                                         select t).ToList<XElement>();
 
+            Type sType = null;
+
             for(int i=0; i<spawnList.Count; i++)
             {
-                spawnPoints.Add(new Portal(new Vector2(Convert.ToInt32(spawnList[i].Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(spawnList[i].Element("Pos").Element("y").Value, Globals.culture)), id));
-                spawnPoints[spawnPoints.Count - 1].spawnTimer.AddToTimer(Convert.ToInt32(spawnList[i].Element("timerAdd").Value, Globals.culture));
+                sType = Type.GetType("ShooterGame200."+spawnList[i].Element("type").Value, true);
+
+
+                spawnPoints.Add((SpawnPoint)(Activator.CreateInstance(sType, new Vector2(Convert.ToInt32(spawnList[i].Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(spawnList[i].Element("Pos").Element("y").Value, Globals.culture)), id, spawnList[i])));
+                
             }
 
             List<XElement> buildingList = (from t in DATA.Descendants("Building")
@@ -122,7 +127,10 @@ namespace ShooterGame200
 
             for (int i = 0; i < buildingList.Count; i++)
             {
-                buildings.Add(new Tower(new Vector2(Convert.ToInt32(buildingList[i].Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(buildingList[i].Element("Pos").Element("y").Value, Globals.culture)), id));
+                sType = Type.GetType("ShooterGame200." + buildingList[i].Element("type").Value, true);
+
+
+                buildings.Add((Building)(Activator.CreateInstance(sType, new Vector2(Convert.ToInt32(buildingList[i].Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(buildingList[i].Element("Pos").Element("y").Value, Globals.culture)), id)));
             }
 
             if(DATA.Element("Hero") != null)

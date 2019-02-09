@@ -53,7 +53,7 @@ namespace ShooterGame200
 
         public virtual void SpawnEggSac()
         {
-            GameGlobals.PassSpawnPoint(new SpidderEggSac(new Vector2(pos.X, pos.Y), ownerId));
+            GameGlobals.PassSpawnPoint(new SpidderEggSac(new Vector2(pos.X, pos.Y), ownerId, null));
         }
 
         public override void Draw(Vector2 OFFSET)
