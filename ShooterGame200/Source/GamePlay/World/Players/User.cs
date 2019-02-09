@@ -15,26 +15,19 @@ using Microsoft.Xna.Framework.Media;
 
 #endregion
 
-
 namespace ShooterGame200
 {
-    public class Imp : Mob
+    public class User : Player
     {
 
-        public Imp(Vector2 POS) : base("2D\\Units\\Mobs\\Imp", POS, new Vector2(40, 40))
+        public User() : base()
         {
-            speed = 2.0f;
+            hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(64, 64));
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY)
+        public override void Update(Player ENEMY, Vector2 OFFSET)
         {
-
-            base.Update(OFFSET, ENEMY);
-        }
-
-        public override void Draw(Vector2 OFFSET)
-        {
-            base.Draw(OFFSET);
+            base.Update(ENEMY, OFFSET);
         }
 
     }

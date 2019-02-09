@@ -22,7 +22,7 @@ namespace ShooterGame200
 
         public Hero hero;
         public List<Unit> units = new List<Unit>();
-        public List<SpawnPoint> spawnpoints = new List<SpawnPoint>();
+        public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
 
         public Player()
@@ -32,7 +32,27 @@ namespace ShooterGame200
 
         public virtual void Update(Player ENEMY, Vector2 OFFSET)
         {
+            if (hero != null)
+            {
+                hero.Update(OFFSET);
+            }
 
+            for (int i = 0; i < spawnPoints.Count; i++)
+            {
+                spawnPoints[i].Update(OFFSET);
+            }
+
+            for (int i = 0; i < units.Count; i++)
+            {
+                units[i].Update(OFFSET, ENEMY);
+
+                if (units[i].dead)
+                {
+                    ChangeScore(1);
+                    units.RemoveAt(i);
+                    i--;
+                }
+            }
         }
 
         public virtual void AddUnit(object INFO)
@@ -47,6 +67,20 @@ namespace ShooterGame200
 
         public virtual void Draw(Vector2 OFFSET)
         {
+            if(hero != null)
+            {
+                hero.Draw(OFFSET);
+            }
+
+            for (int i = 0; i < units.Count; i++)
+            {
+                units[i].Draw(OFFSET);
+            }
+
+            for (int i = 0; i < spawnPoints.Count; i++)
+            {
+                spawnPoints[i].Draw(OFFSET);
+            }
 
         }
 

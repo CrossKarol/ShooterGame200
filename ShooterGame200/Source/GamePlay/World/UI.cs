@@ -31,18 +31,18 @@ namespace ShooterGame200
         }
         public void Update(World WORLD)
         {
-            healthBar.Update(WORLD.hero.health, WORLD.hero.healthMax);
+            healthBar.Update(WORLD.user.hero.health, WORLD.user.hero.healthMax);
         }
 
         public void Draw(World WORLD)
         {
-            string tempStr = "Num killed = " + WORLD.numKilled;
+            string tempStr = "Score: " + GameGlobals.score;
             Vector2 strDims = font.MeasureString(tempStr);
             Globals.spriteBatch.DrawString(font, tempStr,new Vector2(Globals.screenWidth/2 - strDims.X/2, Globals.screenHeight - 40), Color.Black);
 
             healthBar.Draw(new Vector2(20, Globals.screenHeight - 50));
 
-            if (WORLD.hero.dead)
+            if (WORLD.user.hero.dead)
             {
                 tempStr = "Press Enter to Restart!" ;
                 strDims = font.MeasureString(tempStr);

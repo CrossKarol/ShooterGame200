@@ -21,6 +21,7 @@ namespace ShooterGame200
 
     public class GameGlobals
     {
+        public static int score = 0;
 
         public static PassObject PassProjectile, PassMob, CheckScroll;
     }

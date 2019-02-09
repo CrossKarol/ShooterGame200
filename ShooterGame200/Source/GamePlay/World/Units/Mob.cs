@@ -26,9 +26,9 @@ namespace ShooterGame200
             speed = 2.0f;
         }
 
-        public virtual void Update(Vector2 OFFSET, Hero HERO)
+        public override void Update(Vector2 OFFSET, Player ENEMY)
         {
-            AI(HERO);
+            AI(ENEMY.hero);
 
             base.Update(OFFSET);
         }
