@@ -57,6 +57,8 @@ namespace ShooterGame200
             // TODO: use this.Content to load your game content here
             cursor = new Basic2D("2D\\Misc\\CursorArrow", new Vector2(0, 0), new Vector2(28, 28));
 
+            Globals.normalEffect = Globals.content.Load<Effect>("Effects\\Normal");
+
 
             Globals.keyboard = new McKeyboard();
             Globals.mouse = new McMouseControl();
@@ -106,7 +108,7 @@ namespace ShooterGame200
 
             // TODO: Add your drawing code here
 
-            Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+            Globals.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
 
             gamePlay.Draw();
 
