@@ -15,21 +15,28 @@ using Microsoft.Xna.Framework.Media;
 
 #endregion
 
+
 namespace ShooterGame200
 {
-    public class User : Player
+    public class Building : AttackableObject
     {
 
-        public User(int ID) : base(ID)
-        {
-            hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(64, 64), id);
 
-            buildings.Add(new Tower(new Vector2(Globals.screenWidth/2, Globals.screenHeight - 40), id));
+        public Building(string PATH, Vector2 POS, Vector2 DIMS, int OWNERID) 
+            : base(PATH, POS, DIMS, OWNERID)
+        {
+
         }
 
-        public override void Update(Player ENEMY, Vector2 OFFSET)
+        public override void Update(Vector2 OFFSET, Player ENEMY)
         {
-            base.Update(ENEMY, OFFSET);
+            base.Update(OFFSET);
+        }
+
+
+        public override void Draw(Vector2 OFFSET)
+        {
+            base.Draw(OFFSET);
         }
 
     }

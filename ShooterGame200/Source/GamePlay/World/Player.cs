@@ -23,6 +23,7 @@ namespace ShooterGame200
         public Hero hero;
         public List<Unit> units = new List<Unit>();
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
+        public List<Building> buildings = new List<Building>();
 
 
         public Player(int ID)
@@ -60,6 +61,18 @@ namespace ShooterGame200
                     i--;
                 }
             }
+
+
+            for (int i = 0; i < buildings.Count; i++)
+            {
+                buildings[i].Update(OFFSET, ENEMY);
+
+                if (buildings[i].dead)
+                {
+                    buildings.RemoveAt(i);
+                    i--;
+                }
+            }
         }
 
         public virtual void AddUnit(object INFO)
@@ -81,6 +94,16 @@ namespace ShooterGame200
 
         }
 
+        public virtual List<AttackableObject> GetAllObjects()
+        {
+            List<AttackableObject> tempObject = new List<AttackableObject>();
+            tempObject.AddRange(units.ToList<AttackableObject>());
+            tempObject.AddRange(spawnPoints.ToList<AttackableObject>());
+            tempObject.AddRange(buildings.ToList<AttackableObject>());
+
+            return tempObject;
+        }
+
         public virtual void Draw(Vector2 OFFSET)
         {
             if(hero != null)
@@ -91,6 +114,11 @@ namespace ShooterGame200
             for (int i = 0; i < units.Count; i++)
             {
                 units[i].Draw(OFFSET);
+            }
+
+            for (int i = 0; i < buildings.Count; i++)
+            {
+                buildings[i].Draw(OFFSET);
             }
 
             for (int i = 0; i < spawnPoints.Count; i++)

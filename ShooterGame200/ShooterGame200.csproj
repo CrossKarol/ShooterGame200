@@ -53,6 +53,7 @@
     <Compile Include="Source\Engine\Output\QuantityDisplayBar.cs" />
     <Compile Include="Source\GamePlay.cs" />
     <Compile Include="Source\GamePlay\World.cs" />
+    <Compile Include="Source\GamePlay\World\Buildings\Tower.cs" />
     <Compile Include="Source\GamePlay\World\Player.cs" />
     <Compile Include="Source\GamePlay\World\Players\AIPlayer.cs" />
     <Compile Include="Source\GamePlay\World\Players\User.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Source\GamePlay\World\SpawnPoints\Portal.cs" />
     <Compile Include="Source\GamePlay\World\UI.cs" />
     <Compile Include="Source\GamePlay\World\AttackableObject.cs" />
+    <Compile Include="Source\GamePlay\World\Building.cs" />
     <Compile Include="Source\GamePlay\World\Unit.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mob.cs" />
     <Compile Include="Source\GamePlay\World\Units\Hero.cs" />

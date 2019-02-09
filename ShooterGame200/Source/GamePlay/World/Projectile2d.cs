@@ -43,10 +43,10 @@ namespace ShooterGame200
 
             rot = Globals.RotateTowards(pos, new Vector2(TARGET.X, TARGET.Y));
 
-            timer = new McTimer(1200);
+            timer = new McTimer(1500);
         }
 
-        public virtual void Update(Vector2 OFFSET, List<Unit> UNITS)
+        public virtual void Update(Vector2 OFFSET, List<AttackableObject> UNITS)
         {
             pos += direction * speed;
 
@@ -60,11 +60,11 @@ namespace ShooterGame200
                 done = true;
             }
         }
-        public virtual bool HitSomething(List<Unit> UNITS)
+        public virtual bool HitSomething(List<AttackableObject> UNITS)
         {
             for (int i=0; i<UNITS.Count; i++)
             {
-                if(Globals.GetDistance(pos, UNITS[i].pos)< UNITS[i].hitDist)
+                if(owner.ownerId != UNITS[i].ownerId && Globals.GetDistance(pos, UNITS[i].pos)< UNITS[i].hitDist)
                 {
                     UNITS[i].GetHit(1);
 

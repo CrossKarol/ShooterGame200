@@ -25,7 +25,7 @@ namespace ShooterGame200
         {
            
         }
-        public override void Update(Vector2 OFFSET, List<Unit> UNITS)
+        public override void Update(Vector2 OFFSET, List<AttackableObject> UNITS)
         {
             base.Update(OFFSET, UNITS);
         }

@@ -26,6 +26,8 @@ namespace ShooterGame200
             : base("2D\\SpawnPoints\\Portal", POS, new Vector2(45, 45), OWNERID)
         {
 
+            health = 15;
+            healthMax = health;
         }
 
         public override void Update(Vector2 OFFSET)

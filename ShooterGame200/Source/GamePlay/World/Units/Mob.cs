@@ -29,20 +29,20 @@ namespace ShooterGame200
 
         public override void Update(Vector2 OFFSET, Player ENEMY)
         {
-            AI(ENEMY.hero);
+            AI(ENEMY);
 
             base.Update(OFFSET);
         }
 
-        public virtual void AI(Hero HERO)
+        public virtual void AI(Player ENEMY)
         {
-            pos += Globals.RadialMovement(HERO.pos, pos, speed);
-            rot = Globals.RotateTowards(pos, HERO.pos);
+            pos += Globals.RadialMovement(ENEMY.hero.pos, pos, speed);
+            rot = Globals.RotateTowards(pos, ENEMY.hero.pos);
 
 
-            if(Globals.GetDistance(pos, HERO.pos) < 15)
+            if(Globals.GetDistance(pos, ENEMY.hero.pos) < 15)
             {
-                HERO.GetHit(1);
+                ENEMY.hero.GetHit(1);
                 dead = true;
             }
         }
