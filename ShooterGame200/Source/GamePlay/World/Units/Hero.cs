@@ -67,7 +67,7 @@ namespace ShooterGame200
                 Vector2 tempLoc = GRID.GetSlotFromPixel(new Vector2(pos.X, pos.Y - 30), Vector2.Zero);
                 GridLocation loc = GRID.GetSlotFromLocation(tempLoc);
 
-                if(loc != null && !loc.filled && !loc.impasible)
+                if(loc != null && !loc.filled && !loc.impassable)
                 {
                     loc.SetToFilled(false);
                     Building tempBuilding = new ArrowTower(new Vector2(0, 0), new Vector2(1, 1), ownerId);

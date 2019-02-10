@@ -35,7 +35,7 @@ namespace ShooterGame200
             base.Update(OFFSET, ENEMY, GRID);
         }
 
-        public override void AI(Player ENEMY)
+        public override void AI(Player ENEMY, SquareGrid GIRD)
         {
             Building temp = null;
             for(int i=0; i<ENEMY.buildings.Count; i++)
@@ -49,14 +49,22 @@ namespace ShooterGame200
 
             if (temp != null)
             {
-                pos += Globals.RadialMovement(temp.pos, pos, speed);
-                rot = Globals.RotateTowards(pos, temp.pos);
-
-
-                if (Globals.GetDistance(pos, temp.pos) < 15)
+                if (pathNodes == null || pathNodes.Count == 0 && pos.X == moveTo.X && pos.Y == moveTo.Y)
                 {
-                    temp.GetHit(1);
-                    dead = true;
+                    pathNodes = FindPath(GIRD, GIRD.GetSlotFromPixel(temp.pos, Vector2.Zero));
+                    moveTo = pathNodes[0];
+                    pathNodes.RemoveAt(0);
+                }
+                else
+                {
+
+                    MoveUnit();
+
+                    if (Globals.GetDistance(pos, temp.pos) < GIRD.slotDims.X * 1.2f)
+                    {
+                        temp.GetHit(1);
+                        dead = true;
+                    }
                 }
             }
         }

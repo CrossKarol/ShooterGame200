@@ -22,7 +22,7 @@ namespace ShooterGame200
     {
         int range;
 
-        McTimer shotTimer = new McTimer(1200);
+        McTimer shotTimer = new McTimer(12000);
 
 
         public ArrowTower(Vector2 POS, Vector2 FRAMES, int OWNERID) 
