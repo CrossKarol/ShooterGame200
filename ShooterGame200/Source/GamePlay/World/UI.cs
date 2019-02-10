@@ -19,12 +19,16 @@ namespace ShooterGame200
 {
     public class UI
     {
+        public Basic2D pauseOverlay;
+
         public SpriteFont font;
 
         public QuantityDisplayBar healthBar;
 
         public UI()
         {
+            pauseOverlay = new Basic2D("2D\\Misc\\PauseOverlay", new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(300, 300));
+
             font = Globals.content.Load<SpriteFont>("Fonts\\Arial16");
 
             healthBar = new QuantityDisplayBar(new Vector2(104, 16), 2, Color.Red);
@@ -55,6 +59,11 @@ namespace ShooterGame200
             }
 
             healthBar.Draw(new Vector2(20, Globals.screenHeight - 50));
+
+            if(GameGlobals.paused)
+            {
+                pauseOverlay.Draw(Vector2.Zero);
+            }
 
         }
     }
