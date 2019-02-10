@@ -29,6 +29,8 @@ namespace ShooterGame200
         public User user;
         public AIPlayer aIPlayer;
 
+        public SquareGrid grid;
+
         public List<Projectile2d> projectiles = new List<Projectile2d>();
         public List<AttackableObject> allObjects = new List<AttackableObject>();
 
@@ -54,6 +56,8 @@ namespace ShooterGame200
             offset = new Vector2(0, 0);
 
             LoadData(1);
+
+            grid = new SquareGrid(new Vector2(25, 25), new Vector2(-100, -100), new Vector2(Globals.screenWidth + 200, Globals.screenHeight + 200));
 
             ui = new UI(ResetWorld);
 
@@ -98,16 +102,28 @@ namespace ShooterGame200
                 }
             }
 
+            if(grid != null)
+            {
+                grid.Update(offset);
+            }
+
             if (Globals.keyboard.GetSinglePress("Back"))
             {
                 ResetWorld(null);
                 ChangeGameState(0);
             }
 
-                if (Globals.keyboard.GetSinglePress("Space"))
+            if (Globals.keyboard.GetSinglePress("Space"))
             {
                 GameGlobals.paused = !GameGlobals.paused;
             }
+
+            if (Globals.keyboard.GetSinglePress("G"))
+            {
+                grid.showGrid = !grid.showGrid;
+            }
+
+
             ui.Update(this);
         }
 
@@ -213,7 +229,10 @@ namespace ShooterGame200
         }
 
         public virtual void Draw(Vector2 OFFSET)
-        { 
+        {
+            grid.DrawGrid(offset);
+
+
             user.Draw(offset);
             aIPlayer.Draw(offset);
 
