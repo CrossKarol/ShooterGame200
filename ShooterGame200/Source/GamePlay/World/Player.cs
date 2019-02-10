@@ -142,7 +142,7 @@ namespace ShooterGame200
 
             if (DATA.Element("Hero") != null)
             {
-                hero = new Hero("2D\\Units\\HeroSheet", new Vector2(Convert.ToInt32(DATA.Element("Hero").Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(DATA.Element("Hero").Element("Pos").Element("y").Value, Globals.culture)), new Vector2(64, 64), new Vector2(4, 1), id);
+                hero = new Hero("2D\\Units\\WalkingGirl", new Vector2(Convert.ToInt32(DATA.Element("Hero").Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(DATA.Element("Hero").Element("Pos").Element("y").Value, Globals.culture)), new Vector2(64, 64), new Vector2(4, 1), id);
             }
         }
 
