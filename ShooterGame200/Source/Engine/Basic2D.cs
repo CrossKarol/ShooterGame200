@@ -49,7 +49,7 @@ namespace ShooterGame200
         {
             Vector2 mousePos = new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y);
 
-            if(mousePos.X >= (pos.X+OFFSET.X)-dims.X/2 && mousePos.X <= (pos.X + OFFSET.X)+dims.X/2 && mousePos.Y >= (pos.Y + OFFSET.Y)-dims.Y/2 && mousePos.Y <= (pos.Y + OFFSET.Y)+dims.Y/2)
+            if(mousePos.X >= (pos.X+OFFSET.X)-dims.X/2 && mousePos.X <= (pos.X + OFFSET.X)+dims.X/2 && mousePos.Y >= (pos.Y + OFFSET.Y)-dims.Y/2 && mousePos.Y <= (pos.Y +OFFSET.Y)+dims.Y/2)
             {
                 return true;
             }
