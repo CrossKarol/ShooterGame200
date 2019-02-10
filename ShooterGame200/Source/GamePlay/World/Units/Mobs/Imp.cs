@@ -24,13 +24,13 @@ namespace ShooterGame200
         public Imp(Vector2 POS, Vector2 FRAMES, int OWNERID) 
             : base("2D\\Units\\Mobs\\Imp", POS, new Vector2(40, 40), FRAMES, OWNERID)
         {
-            speed = 20.0f;
+            speed = 2.0f;
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
         {
 
-            base.Update(OFFSET, ENEMY);
+            base.Update(OFFSET, ENEMY, GRID);
         }
 
         public override void Draw(Vector2 OFFSET)

@@ -33,16 +33,16 @@ namespace ShooterGame200
             LoadData(DATA);
         }
 
-        public virtual void Update(Player ENEMY, Vector2 OFFSET)
+        public virtual void Update(Player ENEMY, Vector2 OFFSET, SquareGrid GRID)
         {
             if (hero != null)
             {
-                hero.Update(OFFSET);
+                hero.Update(OFFSET, ENEMY, GRID);
             }
 
             for (int i = 0; i < spawnPoints.Count; i++)
             {
-                spawnPoints[i].Update(OFFSET);
+                spawnPoints[i].Update(OFFSET, ENEMY, GRID);
 
                 if (spawnPoints[i].dead)
                 {
@@ -54,7 +54,7 @@ namespace ShooterGame200
 
             for (int i = 0; i < units.Count; i++)
             {
-                units[i].Update(OFFSET, ENEMY);
+                units[i].Update(OFFSET, ENEMY, GRID);
 
                 if (units[i].dead)
                 {
@@ -67,7 +67,7 @@ namespace ShooterGame200
 
             for (int i = 0; i < buildings.Count; i++)
             {
-                buildings[i].Update(OFFSET, ENEMY);
+                buildings[i].Update(OFFSET, ENEMY, GRID);
 
                 if (buildings[i].dead)
                 {

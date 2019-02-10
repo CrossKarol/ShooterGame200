@@ -33,7 +33,7 @@ namespace ShooterGame200
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 1, 133, 0, "Stand"));
         }
 
-        public override void Update(Vector2 OFFSET)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
         {
             bool checkScoll = false;
 
@@ -63,7 +63,20 @@ namespace ShooterGame200
 
             if (Globals.keyboard.GetSinglePress("D1"))
             {
-                GameGlobals.PassBuilding(new ArrowTower(new Vector2(pos.X, pos.Y - 30), new Vector2(1, 1), ownerId));
+
+                Vector2 tempLoc = GRID.GetSlotFromPixel(new Vector2(pos.X, pos.Y - 30), Vector2.Zero);
+                GridLocation loc = GRID.GetSlotFromLocation(tempLoc);
+
+                if(loc != null && !loc.filled && !loc.impasible)
+                {
+                    loc.SetToFilled(false);
+                    Building tempBuilding = new ArrowTower(new Vector2(0, 0), new Vector2(1, 1), ownerId);
+
+                    tempBuilding.pos = GRID.GetPosFromLoc(tempLoc) + GRID.slotDims/2 + new Vector2(0, -tempBuilding.dims.Y * .25f);
+
+                    GameGlobals.PassBuilding(tempBuilding);
+                }
+
             }
 
             if (checkScoll)
@@ -86,7 +99,7 @@ namespace ShooterGame200
                 GameGlobals.PassProjectile(new Fireball(new Vector2(pos.X, pos.Y), this, new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y) - OFFSET));
             }
 
-            base.Update(OFFSET);
+            base.Update(OFFSET, ENEMY, GRID);
         }
 
         public override void Draw(Vector2 OFFSET)

@@ -27,9 +27,9 @@ namespace ShooterGame200
           //  buildings.Add(new Tower(new Vector2(Globals.screenWidth/2, Globals.screenHeight - 40), id));
         }
 
-        public override void Update(Player ENEMY, Vector2 OFFSET)
+        public override void Update(Player ENEMY, Vector2 OFFSET, SquareGrid GRID)
         {
-            base.Update(ENEMY, OFFSET);
+            base.Update(ENEMY, OFFSET, GRID);
         }
 
     }

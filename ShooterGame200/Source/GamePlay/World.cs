@@ -74,8 +74,8 @@ namespace ShooterGame200
                 allObjects.AddRange(aIPlayer.GetAllObjects());    
 
                     
-                    user.Update(aIPlayer, offset);
-                    aIPlayer.Update(user, offset);
+                    user.Update(aIPlayer, offset, grid);
+                    aIPlayer.Update(user, offset, grid);
 
                     
 

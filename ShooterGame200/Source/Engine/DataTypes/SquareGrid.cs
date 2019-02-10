@@ -51,6 +51,10 @@ namespace ShooterGame200
             currentHoverSlot = GetSlotFromPixel(new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y), -OFFSET);
         }
 
+        public virtual Vector2 GetPosFromLoc(Vector2 LOC)
+        {
+            return physicalStartPos + new Vector2((int)LOC.X * slotDims.X, (int)LOC.Y * slotDims.Y);
+        }
 
         public virtual GridLocation GetSlotFromLocation(Vector2 LOC)
         {
@@ -109,6 +113,11 @@ namespace ShooterGame200
                             Globals.normalEffect.Parameters["filterColor"].SetValue(Color.Red.ToVector4());
                             Globals.normalEffect.CurrentTechnique.Passes[0].Apply();
 
+                        }
+                        else if(slots[j][k].filled)
+                        {
+                            Globals.normalEffect.Parameters["filterColor"].SetValue(Color.DarkGray.ToVector4());
+                            Globals.normalEffect.CurrentTechnique.Passes[0].Apply();
                         }
                         else
                         {

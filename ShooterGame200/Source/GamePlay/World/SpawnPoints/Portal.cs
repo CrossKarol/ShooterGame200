@@ -30,9 +30,9 @@ namespace ShooterGame200
             healthMax = health;
         }
 
-        public override void Update(Vector2 OFFSET)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
         {
-            base.Update(OFFSET);
+            base.Update(OFFSET, ENEMY, GRID);
         }
 
 

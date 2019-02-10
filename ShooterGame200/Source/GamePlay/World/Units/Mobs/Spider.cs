@@ -35,7 +35,7 @@ namespace ShooterGame200
             spawnTimer.AddToTimer(4000);
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
         {
 
             spawnTimer.UpdateTimer();
@@ -47,7 +47,7 @@ namespace ShooterGame200
             }
 
 
-            base.Update(OFFSET, ENEMY);
+            base.Update(OFFSET, ENEMY, GRID);
         }
 
 
