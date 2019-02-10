@@ -24,7 +24,7 @@ namespace ShooterGame200
         public Imp(Vector2 POS, int OWNERID) 
             : base("2D\\Units\\Mobs\\Imp", POS, new Vector2(40, 40), OWNERID)
         {
-            speed = 2.0f;
+            speed = 20.0f;
         }
 
         public override void Update(Vector2 OFFSET, Player ENEMY)

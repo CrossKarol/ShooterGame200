@@ -54,7 +54,7 @@ namespace ShooterGame200
 
             LoadData(1);
 
-            ui = new UI();
+            ui = new UI(ResetWorld);
 
 
         }
