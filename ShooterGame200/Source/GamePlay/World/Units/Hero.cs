@@ -55,7 +55,12 @@ namespace ShooterGame200
                 pos = new Vector2(pos.X, pos.Y + speed);
                 checkScroll = true;
             }
-            if(checkScroll)
+            if (Globals.keyboard.GetSinglePress("D1"))
+            {
+                GameGlobals.PassBuilding(new ArrowTower(new Vector2(pos.X, pos.Y - 30), ownerId));
+            }
+
+            if (checkScroll)
             {
                 GameGlobals.CheckScroll(pos);
             }

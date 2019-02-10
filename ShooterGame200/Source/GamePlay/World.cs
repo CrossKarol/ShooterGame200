@@ -43,6 +43,7 @@ namespace ShooterGame200
 
             GameGlobals.PassProjectile = AddProjectile;
             GameGlobals.PassMob = AddMob;
+            GameGlobals.PassBuilding = AddBuilding;
             GameGlobals.PassSpawnPoint = AddSpawnPoint;
             GameGlobals.CheckScroll = CheckScroll;
 
@@ -96,6 +97,23 @@ namespace ShooterGame200
             ui.Update(this);
         }
 
+        public virtual void AddBuilding(object INFO)
+        {
+
+            Building tempBuilding = (Building)INFO;
+
+            if (user.id == tempBuilding.ownerId)
+            {
+                user.AddBuilding(tempBuilding);
+            }
+            else if (aIPlayer.id == tempBuilding.ownerId)
+            {
+                aIPlayer.AddBuilding(tempBuilding);
+            }
+
+          //  aIPlayer.AddUnit((Mob)INFO);
+        }
+
         public virtual void AddMob(object INFO)
         {
 
@@ -110,7 +128,7 @@ namespace ShooterGame200
                 aIPlayer.AddUnit(tempUnit);  
             }
 
-            aIPlayer.AddUnit((Mob)INFO);
+        //    aIPlayer.AddUnit((Mob)INFO);
         }
 
         public virtual void AddProjectile(object INFO)

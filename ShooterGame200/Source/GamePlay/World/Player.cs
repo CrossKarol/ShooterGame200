@@ -77,11 +77,11 @@ namespace ShooterGame200
             }
         }
 
-        public virtual void AddUnit(object INFO)
+        public virtual void AddBuilding(object INFO)
         {
-            Unit tempUnit = (Unit)INFO;
-            tempUnit.ownerId = id;
-            units.Add(tempUnit);
+            Building tempBuilding = (Building)INFO;
+            tempBuilding.ownerId = id;
+            buildings.Add((Building)INFO);
         }
 
         public virtual void AddSpawnPoint(object INFO)
@@ -89,6 +89,13 @@ namespace ShooterGame200
             SpawnPoint tempSpawnPoint = (SpawnPoint)INFO;
             tempSpawnPoint.ownerId = id;
             spawnPoints.Add(tempSpawnPoint);
+        }
+
+        public virtual void AddUnit(object INFO)
+        {
+            Unit tempUnit = (Unit)INFO;
+            tempUnit.ownerId = id;
+            units.Add(tempUnit);
         }
 
         public virtual void ChangeScore(int SCORE)
