@@ -24,8 +24,8 @@ namespace ShooterGame200
 
         public McTimer spawnTimer;
 
-        public Spider(Vector2 POS, int OWNERID) 
-            : base("2D\\Units\\Mobs\\Spider", POS, new Vector2(45, 45), OWNERID)
+        public Spider(Vector2 POS, Vector2 FRAMES, int OWNERID) 
+            : base("2D\\Units\\Mobs\\Spider", POS, new Vector2(45, 45), FRAMES, OWNERID)
         {
             speed = 1.5f;
             health = 3;
@@ -53,7 +53,7 @@ namespace ShooterGame200
 
         public virtual void SpawnEggSac()
         {
-            GameGlobals.PassSpawnPoint(new SpidderEggSac(new Vector2(pos.X, pos.Y), ownerId, null));
+            GameGlobals.PassSpawnPoint(new SpidderEggSac(new Vector2(pos.X, pos.Y), new Vector2(1, 1), ownerId, null));
         }
 
         public override void Draw(Vector2 OFFSET)

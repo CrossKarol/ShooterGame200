@@ -21,15 +21,16 @@ namespace ShooterGame200
     {
         public float rot;
 
-        public Vector2 pos, dims;
+        public Vector2 pos, dims, frameSize;
 
         public Texture2D myModel;
 
 
         public Basic2D(string PATH, Vector2 POS, Vector2 DIMS)
         {
-            pos = POS;
-            dims = DIMS;
+            pos = new Vector2(POS.X, POS.Y);
+            dims = new Vector2(DIMS.X, DIMS.Y);
+            rot = 0.0f;
 
             myModel = Globals.content.Load<Texture2D>(PATH);
 

@@ -24,8 +24,8 @@ namespace ShooterGame200
 
         public McTimer spawnTimer;
 
-        public Spiderling(Vector2 POS, int OWNERID) 
-            : base("2D\\Units\\Mobs\\Spider", POS, new Vector2(25, 25), OWNERID)
+        public Spiderling(Vector2 POS, Vector2 FRAMES, int OWNERID) 
+            : base("2D\\Units\\Mobs\\Spider", POS, new Vector2(25, 25), FRAMES,  OWNERID)
         {
             speed = 2.5f;
         }

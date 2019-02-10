@@ -22,8 +22,8 @@ namespace ShooterGame200
     {
 
 
-        public Unit(string PATH, Vector2 POS, Vector2 DIMS, int OWNERID) 
-            : base(PATH, POS, DIMS, OWNERID)
+        public Unit(string PATH, Vector2 POS, Vector2 DIMS, Vector2 FRAMES, int OWNERID) 
+            : base(PATH, POS, DIMS, FRAMES, OWNERID)
         {
 
         }

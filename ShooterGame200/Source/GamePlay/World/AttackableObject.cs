@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
-    public class AttackableObject : Basic2D
+    public class AttackableObject : Animated2d
     {
         public bool dead;
 
@@ -26,8 +26,8 @@ namespace ShooterGame200
 
         public float speed, hitDist, health, healthMax;
 
-        public AttackableObject(string PATH, Vector2 POS, Vector2 DIMS, int OWNERID) 
-            : base(PATH, POS, DIMS)
+        public AttackableObject(string PATH, Vector2 POS, Vector2 DIMS, Vector2 FRAMES, int OWNERID) 
+            : base(PATH, POS, DIMS, FRAMES, Color.White)
         {
             ownerId = OWNERID;
             dead = false;

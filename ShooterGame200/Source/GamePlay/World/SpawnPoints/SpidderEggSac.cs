@@ -23,8 +23,8 @@ namespace ShooterGame200
 
         int maxSpawns, totalSpawns;
 
-        public SpidderEggSac(Vector2 POS, int OWNERID, XElement DATA) 
-            : base("2D\\SpawnPoints\\EggSac", POS, new Vector2(45, 45), OWNERID, DATA)
+        public SpidderEggSac(Vector2 POS, Vector2 FRAMES, int OWNERID, XElement DATA) 
+            : base("2D\\SpawnPoints\\EggSac", POS, new Vector2(45, 45), FRAMES, OWNERID, DATA)
         {
             totalSpawns = 0;
             maxSpawns = 3;
@@ -44,7 +44,7 @@ namespace ShooterGame200
 
         public override void SpawnMob()
         {
-            Mob tempMob = new Spiderling(new Vector2(pos.X, pos.Y), ownerId);
+            Mob tempMob = new Spiderling(new Vector2(pos.X, pos.Y), new Vector2(1, 1), ownerId);
 
 
             if (tempMob != null)

@@ -21,8 +21,8 @@ namespace ShooterGame200
     public class Mob : Unit
     {
 
-        public Mob(string PATH, Vector2 POS, Vector2 DIMS, int OWNERID)
-            : base(PATH, POS, DIMS, OWNERID)
+        public Mob(string PATH, Vector2 POS, Vector2 DIMS, Vector2 FRAMES, int OWNERID)
+            : base(PATH, POS, DIMS, FRAMES, OWNERID)
         {
             speed = 2.0f;
         }
