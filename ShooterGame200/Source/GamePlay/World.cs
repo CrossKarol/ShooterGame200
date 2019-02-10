@@ -33,12 +33,13 @@ namespace ShooterGame200
         public List<AttackableObject> allObjects = new List<AttackableObject>();
 
 
-        PassObject ResetWorld;
+        PassObject ResetWorld, ChangeGameState;
 
 
-        public World(PassObject RESETWORLD)
+        public World(PassObject RESETWORLD, PassObject CHANGEGAMESTATE)
         {
             ResetWorld = RESETWORLD;
+            ChangeGameState = CHANGEGAMESTATE;
            
 
             GameGlobals.PassProjectile = AddProjectile;
@@ -97,7 +98,13 @@ namespace ShooterGame200
                 }
             }
 
-            if (Globals.keyboard.GetSinglePress("Space"))
+            if (Globals.keyboard.GetSinglePress("Back"))
+            {
+                ResetWorld(null);
+                ChangeGameState(0);
+            }
+
+                if (Globals.keyboard.GetSinglePress("Space"))
             {
                 GameGlobals.paused = !GameGlobals.paused;
             }

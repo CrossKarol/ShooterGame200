@@ -23,9 +23,13 @@ namespace ShooterGame200
 
         World world;
 
-        public GamePlay()
+        PassObject ChangeGameState;
+
+        public GamePlay(PassObject CHANGEGAMESTATE)
         {
             playState = 0;
+
+            ChangeGameState = CHANGEGAMESTATE;
 
             ResetWorld(null);
 
@@ -41,7 +45,7 @@ namespace ShooterGame200
 
         public virtual void ResetWorld(object INFO)
         {
-            world = new World(ResetWorld);
+            world = new World(ResetWorld, ChangeGameState);
         }
 
         public virtual void Draw()

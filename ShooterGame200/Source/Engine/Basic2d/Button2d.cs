@@ -35,6 +35,7 @@ namespace ShooterGame200
         public Button2d(string PATH, Vector2 POS, Vector2 DIMS, string FONTPATH, string TEXT, PassObject BUTTONCLICKED, object INFO) 
             : base(PATH, POS, DIMS)
         {
+            info = INFO;
             text = TEXT;
             ButtonClicked = BUTTONCLICKED;
 

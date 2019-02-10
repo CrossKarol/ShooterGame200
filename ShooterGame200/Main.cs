@@ -1,7 +1,18 @@
-﻿using Microsoft.Xna.Framework;
+﻿#region Includes
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
+using Microsoft.Xna.Framework.Media;
+#endregion
 
 namespace ShooterGame200
 {
@@ -14,6 +25,8 @@ namespace ShooterGame200
         //SpriteBatch spriteBatch;
 
         GamePlay gamePlay;
+
+        MainMenu mainMenu; 
 
         Basic2D cursor;
 
@@ -63,7 +76,8 @@ namespace ShooterGame200
             Globals.keyboard = new McKeyboard();
             Globals.mouse = new McMouseControl();
 
-            gamePlay = new GamePlay();
+            mainMenu = new MainMenu(ChangeGameState, ExitGame);
+            gamePlay = new GamePlay(ChangeGameState);
         }
 
         /// <summary>
@@ -90,12 +104,27 @@ namespace ShooterGame200
             Globals.keyboard.Update();
             Globals.mouse.Update();
 
-            gamePlay.Update();
-
+            if (Globals.gameState == 0)
+            {
+                mainMenu.Update();
+            }
+            else if (Globals.gameState == 1)
+            {
+                gamePlay.Update();
+            }
 
             Globals.keyboard.UpdateOld();
             Globals.mouse.UpdateOld();
             base.Update(gameTime);
+        }
+
+        public virtual void ChangeGameState(object INFO)
+        {
+            Globals.gameState = Convert.ToInt32(INFO, Globals.culture);
+        }
+        public virtual void ExitGame(object INFO)
+        {
+            System.Environment.Exit(0);
         }
 
         /// <summary>
@@ -110,7 +139,14 @@ namespace ShooterGame200
 
             Globals.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
 
-            gamePlay.Draw();
+            if (Globals.gameState == 0)
+            {
+                mainMenu.Draw();
+            }
+            else if (Globals.gameState == 1)
+            {
+                gamePlay.Draw();
+            }
 
             Globals.normalEffect.Parameters["xSize"].SetValue((float)cursor.myModel.Bounds.Width);
             Globals.normalEffect.Parameters["ySize"].SetValue((float)cursor.myModel.Bounds.Height);
