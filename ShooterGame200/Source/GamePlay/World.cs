@@ -19,6 +19,7 @@ namespace ShooterGame200
 {
     public class World
     {
+        public int levelId;
 
         public Vector2 offset;
 
@@ -43,8 +44,10 @@ namespace ShooterGame200
         PassObject ResetWorld, ChangeGameState;
 
 
-        public World(PassObject RESETWORLD, PassObject CHANGEGAMESTATE)
+        public World(PassObject RESETWORLD,int LEVELID, PassObject CHANGEGAMESTATE)
         {
+
+            levelId = LEVELID;
             ResetWorld = RESETWORLD;
             ChangeGameState = CHANGEGAMESTATE;
 
@@ -63,7 +66,7 @@ namespace ShooterGame200
 
             offset = new Vector2(0, 0);
 
-            LoadData(1);
+            LoadData(levelId);
 
             ui = new UI(ResetWorld);
 
