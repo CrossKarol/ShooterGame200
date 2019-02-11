@@ -31,6 +31,8 @@ namespace ShooterGame200
 
         public SquareGrid grid;
 
+        public TileBkg2d bkg;
+
         public LevelDrawManager levelDrawManager;
 
         public List<Projectile2d> projectiles = new List<Projectile2d>();
@@ -64,6 +66,8 @@ namespace ShooterGame200
             LoadData(1);
 
             ui = new UI(ResetWorld);
+
+            bkg = new TileBkg2d("2D\\UI\\Backgrounds\\StandardGrass", new Vector2(-100, -100), new Vector2(120, 100), new Vector2(grid.totalPhysicalDims.X + 100, grid.totalPhysicalDims.Y + 100));
 
 
         }
@@ -275,6 +279,8 @@ namespace ShooterGame200
 
         public virtual void Draw(Vector2 OFFSET)
         {
+
+            bkg.Draw(offset);
             grid.DrawGrid(offset);
 
 

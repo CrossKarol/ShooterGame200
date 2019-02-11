@@ -61,6 +61,7 @@
     <Compile Include="Source\Engine\Output\LevelDrawManager\DrawSlot.cs" />
     <Compile Include="Source\Engine\Output\LevelDrawManager\DrawSlot\DrawSlotUpdatePackage.cs" />
     <Compile Include="Source\Engine\Output\QuantityDisplayBar.cs" />
+    <Compile Include="Source\Engine\Output\TileBkg2d.cs" />
     <Compile Include="Source\GamePlay.cs" />
     <Compile Include="Source\GamePlay\MainMenu.cs" />
     <Compile Include="Source\GamePlay\World.cs" />
@@ -205,6 +206,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\UI\Scene\OakTree.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\UI\Backgrounds\StandardDirt.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\UI\Backgrounds\StandardGrass.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\UI\Backgrounds\StandardSnow.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
