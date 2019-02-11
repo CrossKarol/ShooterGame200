@@ -50,6 +50,7 @@
     <Compile Include="Source\Engine\Basic2d\Button2d.cs" />
     <Compile Include="Source\Engine\DataTypes\Grids\GridItem.cs" />
     <Compile Include="Source\Engine\DataTypes\Grids\GridLocation.cs" />
+    <Compile Include="Source\Engine\DataTypes\SceneItem\SceneItem.cs" />
     <Compile Include="Source\Engine\DataTypes\SquareGrid.cs" />
     <Compile Include="Source\Engine\Globals.cs" />
     <Compile Include="Source\Engine\Input\Keyboard\McKey.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Source\GamePlay\World\Projectile2d.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\Arrow.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\Fireball.cs" />
+    <Compile Include="Source\GamePlay\World\Scene\Plants\OakTree.cs" />
     <Compile Include="Source\GamePlay\World\SpawnPoint.cs" />
     <Compile Include="Source\GamePlay\World\SpawnPoints\MobChoice.cs" />
     <Compile Include="Source\GamePlay\World\SpawnPoints\SpidderEggSac.cs" />
@@ -196,6 +198,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\Grid\TreeNice.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\UI\Scene\OakTree.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

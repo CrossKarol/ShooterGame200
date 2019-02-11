@@ -105,4 +105,31 @@
         </Loc>
       </GridItem1>
     </GridItems>
+  
+  <Scene>
+    <SceneItem>
+      <type>OakTree</type>
+      <Pos>
+        <x>-60</x>
+        <y>200</y>
+      </Pos>
+        <scale>1</scale>
+    </SceneItem>
+    <SceneItem>
+      <type>OakTree</type>
+      <Pos>
+        <x>-60</x>
+        <y>240</y>
+      </Pos>
+        <scale>1</scale>
+    </SceneItem>
+    <SceneItem>
+      <type>OakTree</type>
+      <Pos>
+        <x>-60</x>
+        <y>160</y>
+      </Pos>
+        <scale>.7</scale>
+    </SceneItem>
+  </Scene>
 </Root>

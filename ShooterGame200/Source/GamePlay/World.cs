@@ -33,6 +33,7 @@ namespace ShooterGame200
 
         public List<Projectile2d> projectiles = new List<Projectile2d>();
         public List<AttackableObject> allObjects = new List<AttackableObject>();
+        public List<SceneItem> sceneItems = new List<SceneItem>();
 
 
         PassObject ResetWorld, ChangeGameState;
@@ -90,7 +91,12 @@ namespace ShooterGame200
                         }
                     }
 
-                   
+                    for (int i = 0; i < sceneItems.Count; i++)
+                    {
+                        sceneItems[i].Update(offset);
+                    }
+
+
             }
             else
             {
@@ -228,6 +234,20 @@ namespace ShooterGame200
 
             aIPlayer = new AIPlayer(2, tempElement);
 
+            List<XElement> sceneItemList = (from t in xml.Element("Root").Element("Scene").Descendants("SceneItem")
+                                           select t).ToList<XElement>();
+
+
+
+            Type sType = null;
+            for (int i = 0; i < sceneItemList.Count; i++)
+            {
+                sType = Type.GetType("ShooterGame200." + sceneItemList[i].Element("type").Value, true);
+
+
+                sceneItems.Add((SceneItem)(Activator.CreateInstance(sType, new Vector2(Convert.ToInt32(sceneItemList[i].Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(sceneItemList[i].Element("Pos").Element("y").Value, Globals.culture)), new Vector2((float)Convert.ToDouble(sceneItemList[i].Element("scale").Value, Globals.culture)))));
+            }
+
         }
 
         public virtual void Draw(Vector2 OFFSET)
@@ -237,6 +257,11 @@ namespace ShooterGame200
 
             user.Draw(offset);
             aIPlayer.Draw(offset);
+
+            for (int i=0; i < sceneItems.Count; i++)
+            {
+                sceneItems[i].Draw(offset);
+            }
 
             for (int i = 0; i < projectiles.Count; i++)
             {
