@@ -65,6 +65,7 @@
     <Compile Include="Source\GamePlay\World\Buildings\Tower.cs" />
     <Compile Include="Source\GamePlay\World\Player.cs" />
     <Compile Include="Source\GamePlay\World\Players\AIPlayer.cs" />
+    <Compile Include="Source\GamePlay\World\Players\PlayerValuePacket.cs" />
     <Compile Include="Source\GamePlay\World\Players\User.cs" />
     <Compile Include="Source\GamePlay\World\Projectile2d.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\Arrow.cs" />

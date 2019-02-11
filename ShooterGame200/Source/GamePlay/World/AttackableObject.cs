@@ -22,7 +22,7 @@ namespace ShooterGame200
     {
         public bool dead;
 
-        public int ownerId;
+        public int ownerId, killValue;
 
         public float speed, hitDist, health, healthMax;
 
@@ -36,6 +36,8 @@ namespace ShooterGame200
             health = 1;
             healthMax = health;
 
+            killValue = 1;
+
             hitDist = 35.0f;
         }
 
@@ -47,13 +49,15 @@ namespace ShooterGame200
             base.Update(OFFSET);
         }
 
-        public virtual void GetHit(float DAMAGE)
+        public virtual void GetHit(AttackableObject ATTACKER, float DAMAGE)
         {
             health -= DAMAGE;
             if (health <= 0)
             {
 
                 dead = true;
+
+                GameGlobals.PassGold(new PlayerValuePacket(ATTACKER.ownerId, killValue));
             }
         }
 

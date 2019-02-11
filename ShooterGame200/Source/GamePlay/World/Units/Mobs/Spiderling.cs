@@ -62,7 +62,7 @@ namespace ShooterGame200
 
                     if (Globals.GetDistance(pos, temp.pos) < GIRD.slotDims.X * 1.2f)
                     {
-                        temp.GetHit(1);
+                        temp.GetHit(this, 1);
                         dead = true;
                     }
                 }

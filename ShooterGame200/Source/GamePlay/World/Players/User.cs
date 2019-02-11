@@ -30,6 +30,31 @@ namespace ShooterGame200
         public override void Update(Player ENEMY, Vector2 OFFSET, SquareGrid GRID)
         {
             base.Update(ENEMY, OFFSET, GRID);
+
+
+            if (Globals.keyboard.GetSinglePress("T"))
+            {
+
+                if (gold >= 10)
+                {
+                    Vector2 tempLoc = GRID.GetSlotFromPixel(new Vector2(hero.pos.X, hero.pos.Y - 30), Vector2.Zero);
+                    GridLocation loc = GRID.GetSlotFromLocation(tempLoc);
+
+                    if (loc != null && !loc.filled && !loc.impassable)
+                    {
+                        loc.SetToFilled(false);
+                        Building tempBuilding = new ArrowTower(new Vector2(0, 0), new Vector2(1, 1), id);
+
+                        tempBuilding.pos = GRID.GetPosFromLoc(tempLoc) + GRID.slotDims / 2 + new Vector2(0, -tempBuilding.dims.Y * .25f);
+
+                        GameGlobals.PassBuilding(tempBuilding);
+
+                        gold -= 10;
+                    }
+                }
+
+            }
+
         }
 
     }

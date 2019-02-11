@@ -28,6 +28,8 @@ namespace ShooterGame200
 
             health = 15;
             healthMax = health;
+
+            killValue = 5;
         }
 
         public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)

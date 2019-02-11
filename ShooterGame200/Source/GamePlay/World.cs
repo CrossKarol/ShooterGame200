@@ -50,6 +50,7 @@ namespace ShooterGame200
             GameGlobals.PassBuilding = AddBuilding;
             GameGlobals.PassSpawnPoint = AddSpawnPoint;
             GameGlobals.CheckScroll = CheckScroll;
+            GameGlobals.PassGold = AddGold;
 
             GameGlobals.paused = false;
 
@@ -146,6 +147,20 @@ namespace ShooterGame200
             }
 
           //  aIPlayer.AddUnit((Mob)INFO);
+        }
+
+        public virtual void AddGold(object INFO)
+        {
+            PlayerValuePacket packet = (PlayerValuePacket)INFO;
+
+            if (user.id == packet.playerId)
+            {
+                user.gold += (int)packet.value;
+            }
+            else if (aIPlayer.id == packet.playerId)
+            {
+                aIPlayer.gold += (int)packet.value;
+            }
         }
 
         public virtual void AddMob(object INFO)

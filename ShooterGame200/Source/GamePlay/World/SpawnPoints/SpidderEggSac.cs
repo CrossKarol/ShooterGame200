@@ -33,6 +33,8 @@ namespace ShooterGame200
             health = 3;
             healthMax = health;
 
+            killValue = 2;
+
             spawnTimer = new McTimer(3000);
         }
 

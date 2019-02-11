@@ -57,8 +57,12 @@ namespace ShooterGame200
             Globals.normalEffect.Parameters["filterColor"].SetValue(Color.White.ToVector4());
             Globals.normalEffect.CurrentTechnique.Passes[0].Apply();
 
-            string tempStr = "Score: " + GameGlobals.score;
+            string tempStr = "Gold: " + WORLD.user.gold;
             Vector2 strDims = font.MeasureString(tempStr);
+            Globals.spriteBatch.DrawString(font, tempStr, new Vector2(40, 40), Color.Black);
+
+            tempStr = "Score: " + GameGlobals.score;
+            strDims = font.MeasureString(tempStr);
             Globals.spriteBatch.DrawString(font, tempStr,new Vector2(Globals.screenWidth/2 - strDims.X/2, Globals.screenHeight - 40), Color.Black);
 
             if (WORLD.user.hero.dead || WORLD.user.buildings.Count <= 0)

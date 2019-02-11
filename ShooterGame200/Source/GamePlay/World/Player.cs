@@ -19,7 +19,7 @@ namespace ShooterGame200
 {
     public class Player
     {
-        public int id;
+        public int id, gold;
         public Hero hero;
         public List<Unit> units = new List<Unit>();
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
@@ -29,6 +29,8 @@ namespace ShooterGame200
         public Player(int ID, XElement DATA)
         {
             id = ID;
+
+            gold = 10;
 
             LoadData(DATA);
         }

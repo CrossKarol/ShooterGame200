@@ -1,5 +1,6 @@
 ﻿#region Includes
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -11,20 +12,25 @@ using Microsoft.Xna.Framework.Content;
 
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+#if WINDOWS_PHONE
+using Microsoft.Xna.Framework.Input.Touch;
+#endif
 using Microsoft.Xna.Framework.Media;
-
 #endregion
 
 namespace ShooterGame200
-{
-
-
-    public class GameGlobals
+{ 
+    public class PlayerValuePacket
     {
-        public static bool paused= false;
+        public int playerId;
 
-        public static int score = 0;
+        public object value;
 
-        public static PassObject PassProjectile, PassGold, PassMob, PassBuilding, PassSpawnPoint, CheckScroll;
+        public PlayerValuePacket(int PLAYERID, object VALUE)
+        {
+            playerId = PLAYERID;
+            value = VALUE;
+        }
+
     }
 }
