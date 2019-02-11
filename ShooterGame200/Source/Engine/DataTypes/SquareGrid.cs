@@ -4,6 +4,8 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -20,6 +22,8 @@ namespace ShooterGame200
 {
     public class SquareGrid
     {
+
+
         public bool showGrid;
 
         public Vector2 slotDims, gridDims, physicalStartPos, totalPhysicalDims, currentHoverSlot;
@@ -191,6 +195,11 @@ namespace ShooterGame200
 
 
                 path.Reverse();
+
+                if(path.Count > 1)
+                {
+                    path.RemoveAt(0);
+                }
             }
 
             return path;

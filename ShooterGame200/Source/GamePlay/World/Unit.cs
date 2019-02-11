@@ -56,6 +56,8 @@ namespace ShooterGame200
         {
             if(pos.X != moveTo.X || pos.Y != moveTo.Y)
             {
+                rot = Globals.RotateTowards(pos, moveTo);
+
                 pos += Globals.RadialMovement(moveTo, pos, speed);
 
             }
@@ -66,8 +68,7 @@ namespace ShooterGame200
 
                 pos += Globals.RadialMovement(moveTo, pos, speed);
             }
-
-            rot = Globals.RotateTowards(pos, moveTo);
+          
         }
 
 
