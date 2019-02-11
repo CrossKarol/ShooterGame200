@@ -57,6 +57,9 @@
     <Compile Include="Source\Engine\Input\McKeyboard.cs" />
     <Compile Include="Source\Engine\Input\McMouseControl.cs" />
     <Compile Include="Source\Engine\McTimer.cs" />
+    <Compile Include="Source\Engine\Output\LevelDrawManager.cs" />
+    <Compile Include="Source\Engine\Output\LevelDrawManager\DrawSlot.cs" />
+    <Compile Include="Source\Engine\Output\LevelDrawManager\DrawSlot\DrawSlotUpdatePackage.cs" />
     <Compile Include="Source\Engine\Output\QuantityDisplayBar.cs" />
     <Compile Include="Source\GamePlay.cs" />
     <Compile Include="Source\GamePlay\MainMenu.cs" />

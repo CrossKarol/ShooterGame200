@@ -31,6 +31,8 @@ namespace ShooterGame200
 
         public SquareGrid grid;
 
+        public LevelDrawManager levelDrawManager;
+
         public List<Projectile2d> projectiles = new List<Projectile2d>();
         public List<AttackableObject> allObjects = new List<AttackableObject>();
         public List<SceneItem> sceneItems = new List<SceneItem>();
@@ -43,6 +45,8 @@ namespace ShooterGame200
         {
             ResetWorld = RESETWORLD;
             ChangeGameState = CHANGEGAMESTATE;
+
+            levelDrawManager = new LevelDrawManager();
            
 
             GameGlobals.PassProjectile = AddProjectile;
@@ -68,6 +72,8 @@ namespace ShooterGame200
         {
             if (!user.hero.dead && user.buildings.Count > 0 && !GameGlobals.paused)
             {
+
+                levelDrawManager.Update();
 
                 allObjects.Clear();
                 allObjects.AddRange(user.GetAllObjects());    
@@ -95,6 +101,8 @@ namespace ShooterGame200
                     for (int i = 0; i < sceneItems.Count; i++)
                     {
                         sceneItems[i].Update(offset);
+
+                        sceneItems[i].UpdateDraw(offset, levelDrawManager);
                     }
 
 
@@ -273,10 +281,15 @@ namespace ShooterGame200
             user.Draw(offset);
             aIPlayer.Draw(offset);
 
-            for (int i=0; i < sceneItems.Count; i++)
+            /*for (int i=0; i < sceneItems.Count; i++)
             {
                 sceneItems[i].Draw(offset);
+            }*/
+            if(levelDrawManager != null)
+            {
+                levelDrawManager.Draw();
             }
+
 
             for (int i = 0; i < projectiles.Count; i++)
             {
