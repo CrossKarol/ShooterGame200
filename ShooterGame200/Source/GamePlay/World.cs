@@ -57,8 +57,6 @@ namespace ShooterGame200
 
             LoadData(1);
 
-            grid = new SquareGrid(new Vector2(25, 25), new Vector2(-100, -100), new Vector2(Globals.screenWidth + 200, Globals.screenHeight + 200));
-
             ui = new UI(ResetWorld);
 
 
@@ -224,6 +222,10 @@ namespace ShooterGame200
             {
                 tempElement = xml.Element("Root").Element("AIPlayer");
             }
+
+            grid = new SquareGrid(new Vector2(25, 25), new Vector2(-100, -100), new Vector2(Globals.screenWidth + 200, Globals.screenHeight + 200), xml.Element("Root").Element("GridItems"));
+
+
             aIPlayer = new AIPlayer(2, tempElement);
 
         }
