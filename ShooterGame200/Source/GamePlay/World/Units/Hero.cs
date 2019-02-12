@@ -31,6 +31,8 @@ namespace ShooterGame200
             currentAnimation = 0;
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 4, 133, 0, "Walk"));
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 1, 133, 0, "Stand"));
+
+            skills.Add(new FlameWave(this));
         }
 
         public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
@@ -60,6 +62,12 @@ namespace ShooterGame200
                 pos = new Vector2(pos.X, pos.Y + speed);
                 checkScoll = true;
             }
+            if (Globals.keyboard.GetPress("D1"))
+            {
+                currentSkill = skills[0];
+                currentSkill.Active = true;
+            }
+
 
 
             if (checkScoll)
@@ -76,10 +84,27 @@ namespace ShooterGame200
 
             rot = Globals.RotateTowards(pos, new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y) - OFFSET);
 
-
-            if (Globals.mouse.LeftClick())
+            if (currentSkill == null)
             {
-                GameGlobals.PassProjectile(new Fireball(new Vector2(pos.X, pos.Y), this, new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y) - OFFSET));
+                if (Globals.mouse.LeftClick())
+                {
+                    GameGlobals.PassProjectile(new Fireball(new Vector2(pos.X, pos.Y), this, new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y) - OFFSET));
+                }
+            }
+            else
+            {
+                currentSkill.Update(OFFSET, ENEMY);
+                if(currentSkill.done)
+                {
+                    currentSkill.Reset();
+                    currentSkill = null;
+                }
+            }
+
+            if(Globals.mouse.RightClick())
+            {
+               // currentSkill.Reset();
+                currentSkill = null;
             }
 
             base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);

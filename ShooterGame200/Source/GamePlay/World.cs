@@ -37,6 +37,7 @@ namespace ShooterGame200
         public LevelDrawManager levelDrawManager;
 
         public List<Projectile2d> projectiles = new List<Projectile2d>();
+        public List<Effect2d> effects = new List<Effect2d>();
         public List<AttackableObject> allObjects = new List<AttackableObject>();
         public List<SceneItem> sceneItems = new List<SceneItem>();
 
@@ -55,6 +56,7 @@ namespace ShooterGame200
            
 
             GameGlobals.PassProjectile = AddProjectile;
+            GameGlobals.PassEffect = AddEffect; 
             GameGlobals.PassMob = AddMob;
             GameGlobals.PassBuilding = AddBuilding;
             GameGlobals.PassSpawnPoint = AddSpawnPoint;
@@ -87,32 +89,38 @@ namespace ShooterGame200
                 allObjects.AddRange(aIPlayer.GetAllObjects());    
 
                     
-                    user.Update(aIPlayer, offset, grid, levelDrawManager);
-                    aIPlayer.Update(user, offset, grid, levelDrawManager);
-
-                    
+                user.Update(aIPlayer, offset, grid, levelDrawManager);
+                aIPlayer.Update(user, offset, grid, levelDrawManager);
 
 
+                for (int i = 0; i < projectiles.Count; i++)
+                {
+                    projectiles[i].Update(offset, allObjects);
 
-                    for (int i = 0; i < projectiles.Count; i++)
+                    if (projectiles[i].done)
                     {
-                        projectiles[i].Update(offset, allObjects);
-
-                        if (projectiles[i].done)
-                        {
-                            projectiles.RemoveAt(i);
-                            i--;
-                        }
+                        projectiles.RemoveAt(i);
+                        i--;
                     }
+                }
 
-                    for (int i = 0; i < sceneItems.Count; i++)
+                for (int i = 0; i < effects.Count; i++)
+                {
+                    effects[i].Update(offset);
+
+                    if (effects[i].done)
                     {
-                        sceneItems[i].Update(offset);
-
-                        sceneItems[i].UpdateDraw(offset, levelDrawManager);
+                        effects.RemoveAt(i);
+                        i--;
                     }
+                }
 
+                for (int i = 0; i < sceneItems.Count; i++)
+                {
+                    sceneItems[i].Update(offset);
 
+                    sceneItems[i].UpdateDraw(offset, levelDrawManager);
+                }
             }
             else
             {
@@ -162,6 +170,12 @@ namespace ShooterGame200
             }
 
           //  aIPlayer.AddUnit((Mob)INFO);
+        }
+
+
+        public virtual void AddEffect(object INFO)
+        {
+            effects.Add((Effect2d)INFO);
         }
 
         public virtual void AddGold(object INFO)
@@ -335,6 +349,11 @@ namespace ShooterGame200
             for (int i = 0; i < projectiles.Count; i++)
             {
                 projectiles[i].Draw(offset);
+
+            }
+            for (int i = 0; i < effects.Count; i++)
+            {
+                effects[i].Draw(offset);
 
             }
             ui.Draw(this);

@@ -64,10 +64,13 @@
     <Compile Include="Source\Engine\Output\TileBkg2d.cs" />
     <Compile Include="Source\GamePlay.cs" />
     <Compile Include="Source\GamePlay\MainMenu.cs" />
+    <Compile Include="Source\GamePlay\World\Effect2d.cs" />
     <Compile Include="Source\GamePlay\World.cs" />
     <Compile Include="Source\GamePlay\WorldMap.cs" />
     <Compile Include="Source\GamePlay\World\Buildings\ArrowTower.cs" />
     <Compile Include="Source\GamePlay\World\Buildings\Tower.cs" />
+    <Compile Include="Source\GamePlay\World\Effects\FlameCircle.cs" />
+    <Compile Include="Source\GamePlay\World\Effects\TargetingCircle.cs" />
     <Compile Include="Source\GamePlay\World\Player.cs" />
     <Compile Include="Source\GamePlay\World\Players\AIPlayer.cs" />
     <Compile Include="Source\GamePlay\World\Players\PlayerValuePacket.cs" />
@@ -75,6 +78,8 @@
     <Compile Include="Source\GamePlay\World\Projectile2d.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\Arrow.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\Fireball.cs" />
+    <Compile Include="Source\GamePlay\World\Projectiles\StillInvisibleProjectile.cs" />
+    <Compile Include="Source\GamePlay\World\Projectiles\StillInvisibleProjectiles\FlameWaveProjectile.cs" />
     <Compile Include="Source\GamePlay\World\Scene\Plants\OakTree.cs" />
     <Compile Include="Source\GamePlay\World\SpawnPoint.cs" />
     <Compile Include="Source\GamePlay\World\SpawnPoints\MobChoice.cs" />
@@ -89,6 +94,8 @@
     <Compile Include="Source\GamePlay\World\Units\Mobs\Spiderling.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mobs\Spider.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mobs\Imp.cs" />
+    <Compile Include="Source\GamePlay\World\Units\Skill.cs" />
+    <Compile Include="Source\GamePlay\World\Units\Skill\FlameWave.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -276,6 +283,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\Effects\StunEffect.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\Effects\TargetCircle.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

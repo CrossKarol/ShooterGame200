@@ -25,6 +25,6 @@ namespace ShooterGame200
 
         public static int score = 0;
 
-        public static PassObject PassProjectile, PassGold, PassMob, PassBuilding, PassSpawnPoint, CheckScroll;
+        public static PassObject PassProjectile, PassEffect, PassGold, PassMob, PassBuilding, PassSpawnPoint, CheckScroll;
     }
 }

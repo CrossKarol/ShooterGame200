@@ -16,7 +16,7 @@ using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace ShooterGame200
-{ 
+{
     public class Projectile2d : Basic2D
     {
         public bool done;
@@ -29,7 +29,7 @@ namespace ShooterGame200
 
         public McTimer timer;
 
-        public Projectile2d(string PATH, Vector2 POS, Vector2 DIMS, AttackableObject OWNER, Vector2 TARGET) 
+        public Projectile2d(string PATH, Vector2 POS, Vector2 DIMS, AttackableObject OWNER, Vector2 TARGET)
             : base(PATH, POS, DIMS)
         {
             done = false;
@@ -48,17 +48,21 @@ namespace ShooterGame200
 
         public virtual void Update(Vector2 OFFSET, List<AttackableObject> UNITS)
         {
-            pos += direction * speed;
+            ChangePosition();
 
             timer.UpdateTimer();
             if (timer.Test())
             {
                 done = true;
             }
-            if(HitSomething(UNITS))
+            if (HitSomething(UNITS))
             {
                 done = true;
             }
+        }
+        public virtual void ChangePosition()
+        {
+            pos += direction * speed;
         }
         public virtual bool HitSomething(List<AttackableObject> UNITS)
         {
