@@ -78,6 +78,7 @@
     <Compile Include="Source\GamePlay\World\Players\User.cs" />
     <Compile Include="Source\GamePlay\World\Projectile2d.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\Arrow.cs" />
+    <Compile Include="Source\GamePlay\World\Projectiles\AcidSplash.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\Fireball.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\StillInvisibleProjectile.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\StillInvisibleProjectiles\FlameWaveProjectile.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Source\GamePlay\World\Unit.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mob.cs" />
     <Compile Include="Source\GamePlay\World\Units\Hero.cs" />
+    <Compile Include="Source\GamePlay\World\Units\Mobs\AncientImp.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mobs\Spiderling.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mobs\Spider.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mobs\Imp.cs" />

@@ -114,6 +114,11 @@ namespace ShooterGame200
             tempObject.AddRange(spawnPoints.ToList<AttackableObject>());
             tempObject.AddRange(buildings.ToList<AttackableObject>());
 
+            if(hero != null)
+            {
+                tempObject.Add(hero);
+            }
+
             return tempObject;
         }
 

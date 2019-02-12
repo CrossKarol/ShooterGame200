@@ -20,13 +20,20 @@ namespace ShooterGame200
 {
     public class Mob : Unit
     {
+
+        public float attackRange;
+        public bool isAttacking;
         public bool currentlyPathing;
 
-        public McTimer rePathTimer = new McTimer(200);
+        public McTimer rePathTimer = new McTimer(200), attackTimer = new McTimer(350);
 
         public Mob(string PATH, Vector2 POS, Vector2 DIMS, Vector2 FRAMES, int OWNERID)
             : base(PATH, POS, DIMS, FRAMES, OWNERID)
         {
+            attackRange = 50;
+
+            isAttacking = false;
+
             currentlyPathing = false;
             speed = 2.0f;
         }

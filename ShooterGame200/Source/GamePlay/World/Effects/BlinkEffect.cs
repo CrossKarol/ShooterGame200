@@ -28,12 +28,13 @@ namespace ShooterGame200
 
             frameAnimations = true;
             currentAnimation = 0;
-            frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 4, 66, 0, "Base"));
+            frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 4, 33, 0, "Base"));
 
         }
 
         public override void Update(Vector2 OFFSET)
         {
+
 
             base.Update(OFFSET);
         }

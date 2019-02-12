@@ -109,7 +109,7 @@ namespace ShooterGame200
 
             if(Globals.mouse.RightClick())
             {
-               // currentSkill.Reset();
+                currentSkill.Reset();
                 currentSkill = null;
             }
 
