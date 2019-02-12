@@ -235,7 +235,7 @@ namespace ShooterGame200
         {
             Vector2 tempPos = (Vector2)INFO;
 
-            float maxMovement = user.hero.speed * 3;
+            float maxMovement = user.hero.speed * 4.5f;
 
             float diff = 0;
 

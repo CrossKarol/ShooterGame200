@@ -69,6 +69,7 @@
     <Compile Include="Source\GamePlay\WorldMap.cs" />
     <Compile Include="Source\GamePlay\World\Buildings\ArrowTower.cs" />
     <Compile Include="Source\GamePlay\World\Buildings\Tower.cs" />
+    <Compile Include="Source\GamePlay\World\Effects\BlinkEffect.cs" />
     <Compile Include="Source\GamePlay\World\Effects\FlameCircle.cs" />
     <Compile Include="Source\GamePlay\World\Effects\TargetingCircle.cs" />
     <Compile Include="Source\GamePlay\World\Player.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Source\GamePlay\World\Units\Mobs\Spider.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mobs\Imp.cs" />
     <Compile Include="Source\GamePlay\World\Units\Skill.cs" />
+    <Compile Include="Source\GamePlay\World\Units\Skill\Blink.cs" />
     <Compile Include="Source\GamePlay\World\Units\Skill\FlameWave.cs" />
   </ItemGroup>
   <ItemGroup>
