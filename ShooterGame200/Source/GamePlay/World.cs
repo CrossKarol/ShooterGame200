@@ -87,8 +87,8 @@ namespace ShooterGame200
                 allObjects.AddRange(aIPlayer.GetAllObjects());    
 
                     
-                    user.Update(aIPlayer, offset, grid);
-                    aIPlayer.Update(user, offset, grid);
+                    user.Update(aIPlayer, offset, grid, levelDrawManager);
+                    aIPlayer.Update(user, offset, grid, levelDrawManager);
 
                     
 
@@ -221,6 +221,38 @@ namespace ShooterGame200
         {
             Vector2 tempPos = (Vector2)INFO;
 
+            float maxMovement = user.hero.speed * 3;
+
+            float diff = 0;
+
+
+            if (tempPos.X < -offset.X + Globals.screenWidth * .4f)
+            {
+                diff = -offset.X + (Globals.screenWidth * .4f) - tempPos.X;
+
+                offset = new Vector2(offset.X + Math.Min(maxMovement, diff), offset.Y);
+            }
+            if (tempPos.X > -offset.X + Globals.screenWidth * .6f)
+            {
+                diff = tempPos.X - (-offset.X + (Globals.screenWidth * .6f));
+
+                offset = new Vector2(offset.X - Math.Min(maxMovement, diff), offset.Y);
+            }
+            if (tempPos.Y < -offset.Y + Globals.screenHeight * .4f)
+            {
+                diff = -offset.Y + (Globals.screenHeight * .4f) - tempPos.Y;
+
+                offset = new Vector2(offset.X, offset.Y + Math.Min(maxMovement, diff));
+            }
+            if (tempPos.Y > -offset.Y + Globals.screenHeight * .6f)
+            {
+                diff = tempPos.Y - (-offset.Y + (Globals.screenHeight * .6f));
+
+                offset = new Vector2(offset.X, offset.Y - Math.Min(maxMovement, diff));
+            }
+
+
+            /*
             if (tempPos.X < -offset.X + Globals.screenWidth * .4f)
             {
                 offset = new Vector2(offset.X + user.hero.speed * 2, offset.Y);
@@ -236,7 +268,7 @@ namespace ShooterGame200
             if (tempPos.Y > -offset.Y + Globals.screenHeight * .6f)
             {
                 offset = new Vector2(offset.X, offset.Y - user.hero.speed * 2);
-            }
+            }*/
         }
 
         public virtual void LoadData(int LEVEL)

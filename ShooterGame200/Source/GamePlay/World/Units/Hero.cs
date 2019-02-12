@@ -33,7 +33,7 @@ namespace ShooterGame200
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 1, 133, 0, "Stand"));
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
         {
             bool checkScoll = false;
 
@@ -82,7 +82,7 @@ namespace ShooterGame200
                 GameGlobals.PassProjectile(new Fireball(new Vector2(pos.X, pos.Y), this, new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y) - OFFSET));
             }
 
-            base.Update(OFFSET, ENEMY, GRID);
+            base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
         }
 
         public override void Draw(Vector2 OFFSET)

@@ -31,11 +31,11 @@ namespace ShooterGame200
             speed = 2.0f;
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
         {
             AI(ENEMY, GRID);
 
-            base.Update(OFFSET, ENEMY, GRID);
+            base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
         }
 
         public virtual void AI(Player ENEMY, SquareGrid GIRD)

@@ -31,9 +31,9 @@ namespace ShooterGame200
             hitDist = 35.0f;
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
         {
-            base.Update(OFFSET, ENEMY, GRID);
+            base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
         }
 
 

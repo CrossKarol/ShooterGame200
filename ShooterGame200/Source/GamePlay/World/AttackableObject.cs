@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShooterGame200
 {
-    public class AttackableObject : Animated2d
+    public class AttackableObject : SceneItem
     {
         public bool dead;
 
@@ -27,7 +27,7 @@ namespace ShooterGame200
         public float speed, hitDist, health, healthMax;
 
         public AttackableObject(string PATH, Vector2 POS, Vector2 DIMS, Vector2 FRAMES, int OWNERID) 
-            : base(PATH, POS, DIMS, FRAMES, Color.White)
+            : base(PATH, POS, DIMS, FRAMES, new Vector2(1, 1))
         {
             ownerId = OWNERID;
             dead = false;
@@ -41,12 +41,12 @@ namespace ShooterGame200
             hitDist = 35.0f;
         }
 
-        public virtual void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
+        public virtual void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
         {
 
 
 
-            base.Update(OFFSET);
+            base.Update(OFFSET, LEVELDRAWMANAGER);
         }
 
         public virtual void GetHit(AttackableObject ATTACKER, float DAMAGE)
