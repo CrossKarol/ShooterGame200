@@ -45,44 +45,44 @@ namespace ShooterGame200
             base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
         }
 
-        public virtual void AI(Player ENEMY, SquareGrid GIRD)
+        public virtual void AI(Player ENEMY, SquareGrid GRID)
         {
             rePathTimer.UpdateTimer();
 
-            if (pathNodes == null || (pathNodes.Count == 0 && pos.X == moveTo.X && pos.Y == moveTo.Y) || rePathTimer.Test())
+            if(pathNodes == null || (pathNodes.Count == 0 && pos.X == moveTo.X && pos.Y == moveTo.Y) || rePathTimer.Test())
             {
-
-                if (!currentlyPathing)
+                if(!currentlyPathing)
                 {
 
                     Task repathTask = new Task(() =>
                     {
                         currentlyPathing = true;
 
-                        pathNodes = FindPath(GIRD, GIRD.GetSlotFromPixel(ENEMY.hero.pos, Vector2.Zero));
+                        pathNodes = FindPath(GRID, GRID.GetSlotFromPixel(ENEMY.hero.pos, Vector2.Zero));
                         moveTo = pathNodes[0];
                         pathNodes.RemoveAt(0);
-
+               
                         rePathTimer.ResetToZero();
 
                         currentlyPathing = false;
                     });
 
                     repathTask.Start();
+
+
                 }
             }
             else
             {
-
                 MoveUnit();
 
-                if (Globals.GetDistance(pos, ENEMY.hero.pos) < GIRD.slotDims.X * 1.2f)
+
+                if(Globals.GetDistance(pos, ENEMY.hero.pos) < GRID.slotDims.X * 1.2f)
                 {
                     ENEMY.hero.GetHit(this, 1);
                     dead = true;
                 }
             }
-
         }
 
         public override void Draw(Vector2 OFFSET)
