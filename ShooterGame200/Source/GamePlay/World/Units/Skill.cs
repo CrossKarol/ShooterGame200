@@ -46,7 +46,7 @@ namespace ShooterGame200
 
             set
             {
-                if (value && !active)
+                if (value && !active && targetEffect != null)
                 {
                     targetEffect.done = false;
                     GameGlobals.PassEffect(targetEffect);

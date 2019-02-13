@@ -49,7 +49,7 @@ namespace ShooterGame200
 
             if (temp != null)
             {
-                if (pathNodes == null || pathNodes.Count == 0 && pos.X == moveTo.X && pos.Y == moveTo.Y)
+                if (pathNodes == null || (pathNodes.Count == 0 && pos.X == moveTo.X && pos.Y == moveTo.Y))
                 {
                     pathNodes = FindPath(GIRD, GIRD.GetSlotFromPixel(temp.pos, Vector2.Zero));
                     moveTo = pathNodes[0];

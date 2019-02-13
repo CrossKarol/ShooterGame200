@@ -49,7 +49,7 @@ namespace ShooterGame200
         {
             rePathTimer.UpdateTimer();
 
-            if (pathNodes == null || pathNodes.Count == 0 && pos.X == moveTo.X && pos.Y == moveTo.Y || rePathTimer.Test())
+            if (pathNodes == null || (pathNodes.Count == 0 && pos.X == moveTo.X && pos.Y == moveTo.Y) || rePathTimer.Test())
             {
 
                 if (!currentlyPathing)

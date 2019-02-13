@@ -22,7 +22,7 @@ namespace ShooterGame200
 
         public Blink(AttackableObject OWNER) : base(OWNER)
         {
-
+            targetEffect = null;
 
         }
 
