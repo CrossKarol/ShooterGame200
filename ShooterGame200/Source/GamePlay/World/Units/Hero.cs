@@ -63,13 +63,13 @@ namespace ShooterGame200
                 pos = new Vector2(pos.X, pos.Y + speed);
                 checkScoll = true;
             }
-            if (Globals.keyboard.GetPress("D1"))
+            if (Globals.keyboard.GetSinglePress("D1"))
             {
                 currentSkill = skills[0];
                 currentSkill.Active = true;
             }
 
-            if (Globals.keyboard.GetPress("D2"))
+            if (Globals.keyboard.GetSinglePress("D2"))
             {
                 currentSkill = skills[1];
                 currentSkill.Active = true;
