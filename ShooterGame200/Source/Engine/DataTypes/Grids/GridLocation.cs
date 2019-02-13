@@ -72,7 +72,5 @@ namespace ShooterGame200
                 impassable = true;
             }
         }
-
-
     }
 }

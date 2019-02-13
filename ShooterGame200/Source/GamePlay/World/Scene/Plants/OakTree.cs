@@ -20,12 +20,11 @@ namespace ShooterGame200
     {
 
         public OakTree(Vector2 POS, Vector2 SCALE)
-            : base("2D\\UI\\Scene\\OakTree", POS, new Vector2(100 ,100) * SCALE, new Vector2(1, 1), SCALE)
+            : base("2D\\UI\\Scene\\OakTree", POS, new Vector2(100, 100) * SCALE, new Vector2(1, 1), SCALE)
         {
 
+
         }
-
-
 
     }
 }

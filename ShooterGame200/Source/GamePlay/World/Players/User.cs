@@ -19,7 +19,7 @@ namespace ShooterGame200
 {
     public class User : Player
     {
-
+        
         public User(int ID, XElement DATA) : base(ID, DATA)
         {
           //  hero = new Hero("2D\\Hero", new Vector2(300, 300), new Vector2(64, 64), id);
@@ -53,6 +53,22 @@ namespace ShooterGame200
                     }
                 }
 
+            }
+            if (Globals.keyboard.GetSinglePress("R"))
+            {
+
+                if (gold >= 10 && hero.health < 10)
+                {
+                    hero.health++;
+                    if (hero.health <= 0)
+                    {
+
+                        hero.dead = true;
+                    
+                    }
+                    
+                    gold -= 10;
+                }
             }
 
         }

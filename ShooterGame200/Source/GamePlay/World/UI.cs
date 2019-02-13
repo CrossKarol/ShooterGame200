@@ -21,6 +21,8 @@ namespace ShooterGame200
     {
         public Basic2D pauseOverlay;
 
+        public Player ENEMY;
+
         public Button2d resetBtn;
 
         public SpriteFont font;
@@ -46,6 +48,7 @@ namespace ShooterGame200
             {
                 resetBtn.Update(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 100));
             }
+
         }
 
         public void Draw(World WORLD)

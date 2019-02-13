@@ -32,7 +32,6 @@ namespace ShooterGame200
             ownerId = OWNERID;
             dead = false;
             speed = 2.0f;
-
             health = 1;
             healthMax = health;
 
@@ -43,8 +42,6 @@ namespace ShooterGame200
 
         public virtual void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
         {
-
-
 
             base.Update(OFFSET, LEVELDRAWMANAGER);
         }
@@ -60,6 +57,8 @@ namespace ShooterGame200
                 GameGlobals.PassGold(new PlayerValuePacket(ATTACKER.ownerId, killValue));
             }
         }
+
+   
 
         public override void Draw(Vector2 OFFSET)
         {

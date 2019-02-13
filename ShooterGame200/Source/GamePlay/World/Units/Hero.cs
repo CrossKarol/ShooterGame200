@@ -24,7 +24,8 @@ namespace ShooterGame200
         {
             speed = 2.0f;
 
-            health = 5;
+
+            health = 10;
             healthMax = health;
 
             frameAnimations = true;
@@ -112,6 +113,8 @@ namespace ShooterGame200
                 currentSkill.Reset();
                 currentSkill = null;
             }
+
+
 
             base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
         }
