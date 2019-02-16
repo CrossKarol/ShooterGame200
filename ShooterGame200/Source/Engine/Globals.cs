@@ -38,6 +38,7 @@ namespace ShooterGame200
 
         public static McKeyboard keyboard;
         public static McMouseControl mouse;
+        public static SoundControl soundControl;
 
         public static GameTime gameTime;
 

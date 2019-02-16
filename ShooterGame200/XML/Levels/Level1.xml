@@ -34,8 +34,17 @@
       </Pos>
       <mob rate="50">Imp</mob>
       <mob rate="30">Spider</mob>
-      <mob rate="30">AncientImp</mob>
       <timerAdd>500</timerAdd>
+    </SpawnPoint>
+      <SpawnPoint>
+      <type>Portal</type>
+      <Pos>
+        <x>800</x>
+        <y>150</y>
+      </Pos>
+      <mob rate="50">Imp</mob>
+      <mob rate="30">Spider</mob>
+      <timerAdd>900</timerAdd>
     </SpawnPoint>
   </AIPlayer>
     <GridItems>

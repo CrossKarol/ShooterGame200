@@ -78,6 +78,8 @@ namespace ShooterGame200
 
             mainMenu = new MainMenu(ChangeGameState, ExitGame);
             gamePlay = new GamePlay(ChangeGameState);
+
+            Globals.soundControl = new SoundControl("Audio\\RomanBuilderMusic_Loop");
         }
 
         /// <summary>
