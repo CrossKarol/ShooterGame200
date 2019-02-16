@@ -18,6 +18,9 @@ namespace ShooterGame200
 {
     public class Hero : Unit
     {
+        public SquareGrid squareGrid;
+
+        public Rectangle _collisionBox;
 
         public Hero(string PATH, Vector2 POS, Vector2 DIMS, Vector2 FRAMES, int OWNERID)
             : base(PATH, POS, DIMS, FRAMES, OWNERID)
@@ -108,17 +111,40 @@ namespace ShooterGame200
                 }
             }
 
-            if(Globals.mouse.RightClick())
-            {
-                currentSkill.Reset();
-                currentSkill = null;
-            }
+            //if(Globals.mouse.RightClick())
+            //{
+            //    currentSkill.Reset();
+            //    currentSkill = null;
+            //}
 
 
 
             base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
         }
+        public void SetPosition(Vector2 position)
+        {
+            position = new Vector2(pos.X, pos.Y);
 
+            _collisionBox = new Rectangle((int)(pos.X - (Globals.screenWidth / 2)), (int)(pos.Y - (Globals.screenHeight / 2)), Globals.screenWidth, Globals.screenHeight);
+        }
+
+
+        private void CollisionCheck(Vector2 newPosition)
+        {
+            
+            Vector2 oldPosition = new Vector2(pos.X, pos.Y);
+            SetPosition(newPosition);
+
+            foreach (GridItem b in squareGrid.gridItems)
+            {
+                if (_collisionBox.Intersects(b.CollisionBox))
+                {
+                    SetPosition(oldPosition);
+
+                    break;
+                }
+            }
+        }
         public override void Draw(Vector2 OFFSET)
         {
             base.Draw(OFFSET);
