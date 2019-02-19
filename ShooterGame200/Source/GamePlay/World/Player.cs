@@ -35,20 +35,19 @@ namespace ShooterGame200
             LoadData(DATA);
         }
 
-        public virtual void Update(Player ENEMY, Vector2 OFFSET, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
+        public virtual void Update(Player ENEMY, Vector2 OFFSET, SquareGrid GRID)
         {
             if (hero != null)
             {
-                hero.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
+                hero.Update(OFFSET, ENEMY, GRID);
             }
 
             for (int i = 0; i < spawnPoints.Count; i++)
             {
-                spawnPoints[i].Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
+                spawnPoints[i].Update(OFFSET, ENEMY, GRID);
 
                 if (spawnPoints[i].dead)
                 {
-                    LEVELDRAWMANAGER.Remove(spawnPoints[i]);
                     spawnPoints.RemoveAt(i);
                     i--;
                 }
@@ -56,11 +55,10 @@ namespace ShooterGame200
 
             for (int i = 0; i < units.Count; i++)
             {
-                units[i].Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
+                units[i].Update(OFFSET, ENEMY, GRID);
 
                 if (units[i].dead)
                 {
-                    LEVELDRAWMANAGER.Remove(units[i]);
                     ChangeScore(1);
                     units.RemoveAt(i);
                     i--;
@@ -70,11 +68,10 @@ namespace ShooterGame200
 
             for (int i = 0; i < buildings.Count; i++)
             {
-                buildings[i].Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
+                buildings[i].Update(OFFSET, ENEMY, GRID);
 
                 if (buildings[i].dead)
                 {
-                    LEVELDRAWMANAGER.Remove(buildings[i]);
                     buildings.RemoveAt(i);
                     i--;
                 }
@@ -157,7 +154,7 @@ namespace ShooterGame200
 
         public virtual void Draw(Vector2 OFFSET)
         {
-          /*  if(hero != null)
+            if(hero != null)
             {
                 hero.Draw(OFFSET);
             }
@@ -175,7 +172,7 @@ namespace ShooterGame200
             for (int i = 0; i < spawnPoints.Count; i++)
             {
                 spawnPoints[i].Draw(OFFSET);
-            }*/
+            }
 
         }
 

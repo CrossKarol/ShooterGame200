@@ -33,9 +33,9 @@ namespace ShooterGame200
             //spawnPoints[spawnPoints.Count - 1].spawnTimer.AddToTimer(1000);
         }
 
-        public override void Update(Player ENEMY, Vector2 OFFSET, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
+        public override void Update(Player ENEMY, Vector2 OFFSET, SquareGrid GRID)
         {
-            base.Update(ENEMY, OFFSET, GRID, LEVELDRAWMANAGER);
+            base.Update(ENEMY, OFFSET, GRID);
         }
 
 

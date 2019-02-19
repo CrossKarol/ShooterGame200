@@ -89,8 +89,8 @@ namespace ShooterGame200
                 allObjects.AddRange(aIPlayer.GetAllObjects());    
 
                     
-                user.Update(aIPlayer, offset, grid, levelDrawManager);
-                aIPlayer.Update(user, offset, grid, levelDrawManager);
+                user.Update(aIPlayer, offset, grid);
+                aIPlayer.Update(user, offset, grid);
 
 
                 for (int i = 0; i < projectiles.Count; i++)
@@ -265,24 +265,6 @@ namespace ShooterGame200
                 offset = new Vector2(offset.X, offset.Y - Math.Min(maxMovement, diff));
             }
 
-
-            /*
-            if (tempPos.X < -offset.X + Globals.screenWidth * .4f)
-            {
-                offset = new Vector2(offset.X + user.hero.speed * 2, offset.Y);
-            }
-            if (tempPos.X > -offset.X + Globals.screenWidth * .6f)
-            {
-                offset = new Vector2(offset.X - user.hero.speed * 2, offset.Y);
-            }
-            if (tempPos.Y < -offset.Y + Globals.screenHeight * .4f)
-            {
-                offset = new Vector2(offset.X, offset.Y + user.hero.speed * 2);
-            }
-            if (tempPos.Y > -offset.Y + Globals.screenHeight * .6f)
-            {
-                offset = new Vector2(offset.X, offset.Y - user.hero.speed * 2);
-            }*/
         }
 
         public virtual void LoadData(int LEVEL)

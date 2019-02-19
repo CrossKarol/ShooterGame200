@@ -38,9 +38,9 @@ namespace ShooterGame200
             spawnTimer = new McTimer(3000);
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
         {
-            base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
+            base.Update(OFFSET, ENEMY, GRID);
         }
 
 

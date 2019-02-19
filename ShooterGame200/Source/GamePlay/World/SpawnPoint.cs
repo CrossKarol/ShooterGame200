@@ -38,7 +38,7 @@ namespace ShooterGame200
             hitDist = 35.0f;
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
         {
             spawnTimer.UpdateTimer();
             if(spawnTimer.Test())
@@ -47,7 +47,7 @@ namespace ShooterGame200
                 spawnTimer.ResetToZero();
             }
 
-            base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
+            base.Update(OFFSET, ENEMY, GRID);
         }
 
         public virtual void LoadData(XElement DATA)

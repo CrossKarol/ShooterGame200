@@ -37,7 +37,7 @@ namespace ShooterGame200
             skills.Add(new Blink(this));
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID, LevelDrawManager LEVELDRAWMANAGER)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
         {
             bool checkScoll = false;
 
@@ -108,15 +108,15 @@ namespace ShooterGame200
                 }
             }
 
-            if(Globals.mouse.RightClick())
-            {
-                currentSkill.Reset();
-                currentSkill = null;
-            }
+            //if(Globals.mouse.RightClick())
+            //{
+            //    currentSkill.Reset();
+            //    currentSkill = null;
+            //}
 
 
 
-            base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
+            base.Update(OFFSET, ENEMY, GRID);
         }
 
         public override void Draw(Vector2 OFFSET)

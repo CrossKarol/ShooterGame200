@@ -31,11 +31,11 @@ namespace ShooterGame200
             moveTo = new Vector2(POS.X, POS.Y);
         }
 
-        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID,LevelDrawManager LEVELDRAWMANAGER)
+        public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)
         {
 
 
-            base.Update(OFFSET, ENEMY, GRID, LEVELDRAWMANAGER);
+            base.Update(OFFSET, ENEMY, GRID);
         }
 
         public virtual List<Vector2> FindPath(SquareGrid GRID, Vector2 ENDSLOT)
