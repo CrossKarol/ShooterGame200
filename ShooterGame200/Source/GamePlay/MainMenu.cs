@@ -24,9 +24,9 @@ namespace ShooterGame200
 
             bkg = new Basic2D("2D\\UI\\Backgrounds\\MenuBackground", new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(Globals.screenWidth, Globals.screenHeight));
 
-            buttons.Add(new Button2d("2D\\Misc\\button1", new Vector2(0, 0), new Vector2(126, 42), "Fonts\\Arial16", "Play", PlayClickDel, 1));
+            buttons.Add(new Button2d("2D\\Misc\\button", new Vector2(0, 0), new Vector2(126, 42), "Fonts\\Arial16", "Play", PlayClickDel, 1));
 
-            buttons.Add(new Button2d("2D\\Misc\\button1", new Vector2(0, 0), new Vector2(126, 42), "Fonts\\Arial16", "Exit", ExitClickDel, null));
+            buttons.Add(new Button2d("2D\\Misc\\button", new Vector2(0, 0), new Vector2(126, 42), "Fonts\\Arial16", "Exit", ExitClickDel, null));
         }
 
         public virtual void Update()

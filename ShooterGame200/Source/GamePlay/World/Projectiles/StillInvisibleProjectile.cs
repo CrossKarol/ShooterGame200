@@ -12,7 +12,7 @@ namespace ShooterGame200
         float currentTick;
 
         public StillInvisibleProjectile(Vector2 POS, Vector2 DIMS, AttackableObject OWNER, Vector2 TARGET, int MSEC)
-            : base("2d\\Misc\\solid", POS, DIMS, OWNER, TARGET)
+            : base("2d\\Misc\\bar", POS, DIMS, OWNER, TARGET)
         {
             ticks = 3;
             currentTick = 0;

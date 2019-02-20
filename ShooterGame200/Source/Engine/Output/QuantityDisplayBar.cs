@@ -18,8 +18,8 @@ namespace ShooterGame200
             boarder = BOARDER;
             color = COLOR;
 
-            bar = new Basic2D("2D\\Misc\\solid", new Vector2(0, 0), new Vector2(DIMS.X - boarder * 2, DIMS.Y - boarder * 2));
-            barBKG = new Basic2D("2D\\Misc\\shade", new Vector2(0, 0), new Vector2(DIMS.X, DIMS.Y));
+            bar = new Basic2D("2D\\Misc\\bar", new Vector2(0, 0), new Vector2(DIMS.X - boarder * 2, DIMS.Y - boarder * 2));
+            barBKG = new Basic2D("2D\\Misc\\barBkg", new Vector2(0, 0), new Vector2(DIMS.X, DIMS.Y));
         }
 
         public virtual void Update(float CURRENT, float MAX)

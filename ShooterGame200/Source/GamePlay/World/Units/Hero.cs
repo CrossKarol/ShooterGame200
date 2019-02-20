@@ -11,7 +11,7 @@ namespace ShooterGame200
             : base(PATH, POS, DIMS, FRAMES, OWNERID)
         {
             speed = 2.0f;
-            health = 10;
+            health = 5;
             healthMax = health;
             frameAnimations = true;
             currentAnimation = 0;

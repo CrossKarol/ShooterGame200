@@ -44,7 +44,7 @@ namespace ShooterGame200
 
             for(int i=0; i<levelList.Count; i++)
             {
-                levels.Add(new Button2d("2D\\Misc\\SimpleBtn", new Vector2(Convert.ToInt32(levelList[i].Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(levelList[i].Element("Pos").Element("y").Value, Globals.culture)), new Vector2(150, 40), "Fonts\\Arial16", levelList[i].Element("name").Value, LevelClicked, levelList[i].Attribute("id").Value));
+                levels.Add(new Button2d("2D\\Misc\\button", new Vector2(Convert.ToInt32(levelList[i].Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(levelList[i].Element("Pos").Element("y").Value, Globals.culture)), new Vector2(150, 40), "Fonts\\Arial16", levelList[i].Element("name").Value, LevelClicked, levelList[i].Attribute("id").Value));
             }
         }
         public virtual void LevelClicked(object INFO)

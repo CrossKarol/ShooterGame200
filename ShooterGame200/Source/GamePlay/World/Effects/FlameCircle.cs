@@ -9,7 +9,7 @@ namespace ShooterGame200
     public class FlameCircle : Effect2d
     {
         
-        public FlameCircle(Vector2 POS, Vector2 DIMS,int MSEC) : base("2D\\Effects\\FireNova", POS, DIMS, new Vector2(1, 1), MSEC)
+        public FlameCircle(Vector2 POS, Vector2 DIMS,int MSEC) : base("2D\\Effects\\explosion", POS, new Vector2(220, 220), new Vector2(1, 1), MSEC)
         {            
         }
 

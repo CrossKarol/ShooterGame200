@@ -12,7 +12,7 @@ namespace ShooterGame200
 
 
         public Portal(Vector2 POS, Vector2 FRAMES, int OWNERID, XElement DATA) 
-            : base("2D\\SpawnPoints\\Portal", POS, new Vector2(45, 45), FRAMES, OWNERID, DATA)
+            : base("2D\\SpawnPoints\\Portal", POS, new Vector2(55, 55), FRAMES, OWNERID, DATA)
         {
 
             health = 15;

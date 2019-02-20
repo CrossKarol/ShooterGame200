@@ -27,7 +27,7 @@ namespace ShooterGame200
             totalPhysicalDims = new Vector2((int)(TOTALDIMS.X), (int)(TOTALDIMS.Y));
             currentHoverSlot = new Vector2(0, 0);
             SetBaseGrid(null);
-            gridImg = new Basic2D("2d\\Misc\\shade", slotDims / 2, new Vector2(slotDims.X - 2, slotDims.Y - 2));
+            gridImg = new Basic2D("2d\\Misc\\barBkg", slotDims / 2, new Vector2(slotDims.X - 2, slotDims.Y - 2));
             LoadData(DATA);
         }
 
