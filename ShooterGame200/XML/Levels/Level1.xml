@@ -19,35 +19,46 @@
     <SpawnPoint>
       <type>Portal</type>
       <Pos>
-        <x>40</x>
-        <y>40</y>
+        <x>80</x>
+        <y>80</y>
       </Pos>
       <mob rate="50">Imp</mob>
-      <mob rate="20">Monster</mob>
-      <mob rate="50">AncientImp</mob>
-      <mob rate="20">MonsterTwo</mob>
+      <mob rate="10">Monster</mob>
+      <mob rate="10">AncientImp</mob>
+      <mob rate="10">MonsterTwo</mob>
       <timerAdd>1000</timerAdd>
     </SpawnPoint>
     <SpawnPoint>
       <type>Portal</type>
       <Pos>
-        <x>800</x>
-        <y>40</y>
+        <x>1000</x>
+        <y>80</y>
       </Pos>
       <mob rate="50">Imp</mob>
-      <mob rate="30">Monster</mob>
-      <mob rate="20">MonsterTwo</mob>
+      <mob rate="10">Monster</mob>
+      <mob rate="10">MonsterTwo</mob>
       <timerAdd>500</timerAdd>
     </SpawnPoint>
       <SpawnPoint>
       <type>Portal</type>
       <Pos>
-        <x>800</x>
-        <y>150</y>
+        <x>80</x>
+        <y>800</y>
       </Pos>
       <mob rate="50">Imp</mob>
-      <mob rate="30">Monster</mob>
-      <mob rate="20">MonsterTwo</mob>
+      <mob rate="10">Monster</mob>
+      <mob rate="10">MonsterTwo</mob>
+      <timerAdd>900</timerAdd>
+    </SpawnPoint>
+   <SpawnPoint>
+      <type>Portal</type>
+      <Pos>
+        <x>1000</x>
+        <y>800</y>
+      </Pos>
+      <mob rate="10">Imp</mob>
+      <mob rate="10">Monster</mob>
+      <mob rate="10">MonsterTwo</mob>
       <timerAdd>900</timerAdd>
     </SpawnPoint>
   </AIPlayer>

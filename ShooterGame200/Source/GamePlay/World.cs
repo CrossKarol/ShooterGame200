@@ -151,15 +151,15 @@ namespace ShooterGame200
                     ChangeGameState(2);
                 
             }
-            if (Globals.keyboard.GetSinglePress("C"))
-            {
-                if (user.gold >= 100)
-                {
-                    ResetWorld(2);
-                    user.gold -= 100;
-                }
 
+            if (user.gold == 150)
+            {
+
+                ResetWorld(2);
+                user.gold -= 100;
             }
+
+
 
             if (Globals.keyboard.GetSinglePress("Space"))
             {

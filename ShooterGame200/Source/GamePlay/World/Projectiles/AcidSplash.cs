@@ -21,7 +21,7 @@ namespace ShooterGame200
     {
 
         public AcidSplash(Vector2 POS, Unit OWNER, Vector2 TARGET) 
-            : base("2D\\Projectiles\\AcidBall", POS, new Vector2(20, 20), OWNER, TARGET)
+            : base("2D\\Projectiles\\FireBall2", POS, new Vector2(20, 20), OWNER, TARGET)
         {
 
             speed = 4.0f;

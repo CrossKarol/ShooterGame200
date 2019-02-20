@@ -22,7 +22,7 @@ namespace ShooterGame200
     {
         
         public BlinkEffect(Vector2 POS, Vector2 DIMS,int MSEC)
-            : base("2D\\Effects\\Rez", POS, DIMS, new Vector2(4, 1), MSEC)
+            : base("2D\\Effects\\PoisonBlob", POS, DIMS, new Vector2(4, 1), MSEC)
         {
 
 

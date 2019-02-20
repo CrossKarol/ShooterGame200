@@ -44,7 +44,7 @@
         <y>40</y>
       </Pos>
       <mob rate="50">Imp</mob>
-      <mob rate="40">Spider</mob>
+      <mob rate="40">Monster</mob>
       <mob rate="30">Monster</mob>
       <timerAdd>0</timerAdd>
     </SpawnPoint>
