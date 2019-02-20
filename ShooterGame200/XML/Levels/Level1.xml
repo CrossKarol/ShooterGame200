@@ -23,8 +23,9 @@
         <y>40</y>
       </Pos>
       <mob rate="50">Imp</mob>
-      <mob rate="20">Spider</mob>
+      <mob rate="20">Monster</mob>
       <mob rate="50">AncientImp</mob>
+      <mob rate="20">MonsterTwo</mob>
       <timerAdd>1000</timerAdd>
     </SpawnPoint>
     <SpawnPoint>
@@ -34,7 +35,8 @@
         <y>40</y>
       </Pos>
       <mob rate="50">Imp</mob>
-      <mob rate="30">Spider</mob>
+      <mob rate="30">Monster</mob>
+      <mob rate="20">MonsterTwo</mob>
       <timerAdd>500</timerAdd>
     </SpawnPoint>
       <SpawnPoint>
@@ -44,7 +46,8 @@
         <y>150</y>
       </Pos>
       <mob rate="50">Imp</mob>
-      <mob rate="30">Spider</mob>
+      <mob rate="30">Monster</mob>
+      <mob rate="20">MonsterTwo</mob>
       <timerAdd>900</timerAdd>
     </SpawnPoint>
   </AIPlayer>

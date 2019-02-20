@@ -27,7 +27,6 @@ namespace ShooterGame200
         GamePlay gamePlay;
 
         MainMenu mainMenu;
-        World world;
         WorldMap worldMap;
         Basic2D cursor;
 
@@ -70,7 +69,7 @@ namespace ShooterGame200
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            cursor = new Basic2D("2D\\Misc\\CursorArrow", new Vector2(0, 0), new Vector2(28, 28));
+            cursor = new Basic2D("2D\\Misc\\Cursor1", new Vector2(0, 0), new Vector2(18, 18));
 
             Globals.normalEffect = Globals.content.Load<Effect>("Effects\\Normal");
 
@@ -84,7 +83,7 @@ namespace ShooterGame200
            
             
 
-            Globals.soundControl = new SoundControl("Audio\\RomanBuilderMusic_Loop");
+            Globals.soundControl = new SoundControl("Audio\\Muzyka");
         }
 
         /// <summary>

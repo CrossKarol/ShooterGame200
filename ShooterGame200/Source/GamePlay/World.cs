@@ -75,7 +75,7 @@ namespace ShooterGame200
 
             ui = new UI(ResetWorld);
 
-            bkg = new TileBkg2d("2D\\UI\\Backgrounds\\StandardDirt", new Vector2(-100, -100), new Vector2(120, 100), new Vector2(grid.totalPhysicalDims.X + 100, grid.totalPhysicalDims.Y + 100));
+            bkg = new TileBkg2d("2D\\UI\\Backgrounds\\KafelekPodloga", new Vector2(-100, -100), new Vector2(120, 100), new Vector2(grid.totalPhysicalDims.X + 100, grid.totalPhysicalDims.Y + 100));
 
 
         }

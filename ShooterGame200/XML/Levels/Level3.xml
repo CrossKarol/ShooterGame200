@@ -23,7 +23,9 @@
         <y>40</y>
       </Pos>
       <mob rate="50">Imp</mob>
-      <mob rate="20">Spider</mob>
+      <mob rate="20">
+        <mob rate="30">Monster</mob>
+      </mob>
       <timerAdd>1000</timerAdd>
     </SpawnPoint>
   </AIPlayer>

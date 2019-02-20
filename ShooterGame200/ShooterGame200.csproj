@@ -65,7 +65,6 @@
     <Compile Include="Source\Engine\Output\TileBkg2d.cs" />
     <Compile Include="Source\GamePlay.cs" />
     <Compile Include="Source\GamePlay\MainMenu.cs" />
-    <Compile Include="Source\GamePlay\ChangeLevel.cs" />
     <Compile Include="Source\GamePlay\World\Effect2d.cs" />
     <Compile Include="Source\GamePlay\World.cs" />
     <Compile Include="Source\GamePlay\WorldMap.cs" />
@@ -78,7 +77,6 @@
     <Compile Include="Source\GamePlay\World\Players\PlayerValuePacket.cs" />
     <Compile Include="Source\GamePlay\World\Players\User.cs" />
     <Compile Include="Source\GamePlay\World\Projectile2d.cs" />
-    <Compile Include="Source\GamePlay\World\Projectiles\Arrow.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\AcidSplash.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\Fireball.cs" />
     <Compile Include="Source\GamePlay\World\Projectiles\StillInvisibleProjectile.cs" />
@@ -86,7 +84,6 @@
     <Compile Include="Source\GamePlay\World\Scene\Plants\OakTree.cs" />
     <Compile Include="Source\GamePlay\World\SpawnPoint.cs" />
     <Compile Include="Source\GamePlay\World\SpawnPoints\MobChoice.cs" />
-    <Compile Include="Source\GamePlay\World\SpawnPoints\SpidderEggSac.cs" />
     <Compile Include="Source\GamePlay\World\SpawnPoints\Portal.cs" />
     <Compile Include="Source\GamePlay\World\UI.cs" />
     <Compile Include="Source\GamePlay\World\AttackableObject.cs" />
@@ -95,8 +92,8 @@
     <Compile Include="Source\GamePlay\World\Units\Mob.cs" />
     <Compile Include="Source\GamePlay\World\Units\Hero.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mobs\AncientImp.cs" />
-    <Compile Include="Source\GamePlay\World\Units\Mobs\Spiderling.cs" />
-    <Compile Include="Source\GamePlay\World\Units\Mobs\Spider.cs" />
+    <Compile Include="Source\GamePlay\World\Units\Mobs\MonsterTwo.cs" />
+    <Compile Include="Source\GamePlay\World\Units\Mobs\Monster.cs" />
     <Compile Include="Source\GamePlay\World\Units\Mobs\Imp.cs" />
     <Compile Include="Source\GamePlay\World\Units\Skill.cs" />
     <Compile Include="Source\GamePlay\World\Units\Skill\Blink.cs" />
@@ -128,58 +125,13 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
-    <Content Include="Content\2D\Misc\CursorArrow.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Projectiles\Fireball.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\2D\Misc\circle.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Units\Mobs\Imp.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Fonts\Arial16.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Fonts\Arial20Bold.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Fonts\Arial24.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Fonts\Lindsey13.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Fonts\Lindsey15.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Fonts\Lindsey16.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Fonts\Lindsey17.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Fonts\Lindsey18.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Fonts\Lindsey20.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\2D\Misc\shade.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Misc\solid.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Units\Mobs\Imp3.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Units\Mobs\ImpBlue.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Units\Mobs\Spider.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\Projectiles\AcidBall.xnb">
@@ -188,31 +140,13 @@
     <Content Include="Content\2D\Buildings\Tower.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\2D\SpawnPoints\EggSac.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\2D\SpawnPoints\Portal.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Projectiles\Arrow.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Misc\PauseOverlay.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\Misc\SimpleBtn.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Effects\Normal.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\UI\Backgrounds\MainMenuBkg.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Units\HeroSheet.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Units\WalkingGirl.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\Grid\Hill.xnb">
@@ -222,21 +156,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\UI\Scene\OakTree.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\UI\Backgrounds\StandardDirt.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\UI\Backgrounds\StandardGrass.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\UI\Backgrounds\StandardSnow.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\UI\Backgrounds\WorldMap.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\UI\Backgrounds\GamePlays.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\Effects\AuraLine.xnb">
@@ -287,25 +206,10 @@
     <Content Include="Content\2D\Effects\TargetCircle.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Audio\RomanBuilderMusic_Loop.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\2D\Units\bandit-move.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\2D\Units\chitiniac-attack.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\2D\Units\chitiniac-move.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Units\postac1.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Units\spider01.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2D\Units\pos1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2D\Units\cockroach-move.xnb">
@@ -314,14 +218,40 @@
     <Content Include="Content\2D\Units\cockroach-move1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\2D\Units\crawler-move.xnb">
+    <Content Include="Content\2D\UI\Backgrounds\MenuBackground.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\2D\Units\timberman-move.xnb">
+    <Content Include="Content\2D\UI\Backgrounds\WordMapBackground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\UI\Backgrounds\KafelekPodloga.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\Misc\Cursor1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\Misc\pause_icon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\Misc\button1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\Misc\solid.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\Muzyka.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\Units\HeroNice.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2D\Projectiles\FireBall1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\2D\Units\Mobs\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -21,7 +21,7 @@ namespace ShooterGame200
     {
 
         public Fireball(Vector2 POS, Unit OWNER, Vector2 TARGET) 
-            : base("2D\\Projectiles\\Fireball", POS, new Vector2(20, 20), OWNER, TARGET)
+            : base("2D\\Projectiles\\Fireball1", POS, new Vector2(30, 30), OWNER, TARGET)
         {
            
         }

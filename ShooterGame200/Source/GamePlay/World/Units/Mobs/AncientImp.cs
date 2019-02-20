@@ -22,7 +22,7 @@ namespace ShooterGame200
     {
 
         public AncientImp(Vector2 POS, Vector2 FRAMES, int OWNERID) 
-            : base("2D\\Units\\cockroach-move", POS, new Vector2(40, 40), new Vector2(8, 1), OWNERID)
+            : base("2D\\Units\\cockroach-move1", POS, new Vector2(40, 40), new Vector2(8, 1), OWNERID)
         {
             speed = 2.0f;
 

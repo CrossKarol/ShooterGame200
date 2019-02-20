@@ -31,11 +31,11 @@ namespace ShooterGame200
 
         public UI(PassObject RESET)
         {
-            pauseOverlay = new Basic2D("2D\\Misc\\PauseOverlay", new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(300, 300));
+            pauseOverlay = new Basic2D("2D\\Misc\\pause_icon", new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(200, 200));
 
             font = Globals.content.Load<SpriteFont>("Fonts\\Arial16");
 
-            resetBtn = new Button2d("2D\\Misc\\SimpleBtn", new Vector2(0, 0), new Vector2(96, 32), "Fonts\\Arial16", "Reset", RESET, null);
+            resetBtn = new Button2d("2D\\Misc\\button1", new Vector2(0, 0), new Vector2(96, 32), "Fonts\\Arial16", "Reset", RESET, null);
 
             healthBar = new QuantityDisplayBar(new Vector2(104, 16), 2, Color.Red);
         }
