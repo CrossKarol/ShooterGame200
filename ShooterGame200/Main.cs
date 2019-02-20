@@ -78,7 +78,7 @@ namespace ShooterGame200
             Globals.mouse = new McMouseControl();
             
             mainMenu = new MainMenu(ChangeGameState, ExitGame, ChangeGameState);
-            gamePlay = new GamePlay(ChangeGameState,2);
+            gamePlay = new GamePlay(ChangeGameState);
             worldMap = new WorldMap(ChangeGameState);
            
             
@@ -112,6 +112,7 @@ namespace ShooterGame200
 
             if (Globals.gameState == 0)
             {
+
                 mainMenu.Update();
             }
             else if (Globals.gameState == 1)

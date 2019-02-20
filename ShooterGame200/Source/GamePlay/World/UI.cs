@@ -77,9 +77,20 @@ namespace ShooterGame200
                 resetBtn.Draw(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 100));
             }
 
+            if (WORLD.user.gold>50|| WORLD.user.buildings.Count <= 0)
+            {
+                tempStr = "You won click enter to play again!";
+                strDims = font.MeasureString(tempStr);
+                
+                Globals.spriteBatch.DrawString(font, tempStr, new Vector2(Globals.screenWidth / 2 - strDims.X / 2, Globals.screenHeight / 2), Color.Black);
+
+                resetBtn.Draw(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 100));
+            }
+
+
             healthBar.Draw(new Vector2(20, Globals.screenHeight - 50));
 
-            if(GameGlobals.paused)
+            if(GameGlobals.paused&&WORLD.user.gold<50)
             {
                 pauseOverlay.Draw(Vector2.Zero);
             }

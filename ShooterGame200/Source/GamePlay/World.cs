@@ -26,6 +26,7 @@ namespace ShooterGame200
         
 
         public UI ui;
+        public int stop ;
 
         public User user;
         public AIPlayer aIPlayer;
@@ -49,6 +50,7 @@ namespace ShooterGame200
         public World(PassObject RESETWORLD,int LEVELID, PassObject CHANGEGAMESTATE)
         {
 
+            stop = 0;
             levelId = LEVELID;
             ResetWorld = RESETWORLD;
             ChangeWorldTwo = RESETWORLD;
@@ -75,7 +77,7 @@ namespace ShooterGame200
 
             ui = new UI(ResetWorld);
 
-            bkg = new TileBkg2d("2D\\UI\\Backgrounds\\KafelekPodloga", new Vector2(-100, -100), new Vector2(120, 100), new Vector2(grid.totalPhysicalDims.X + 100, grid.totalPhysicalDims.Y + 100));
+            bkg = new TileBkg2d("2D\\UI\\Backgrounds\\KafelekPodloga", new Vector2(-100, -100), new Vector2(120, 100), new Vector2(grid.totalPhysicalDims.X, grid.totalPhysicalDims.Y));
 
 
         }
@@ -141,7 +143,7 @@ namespace ShooterGame200
             if (Globals.keyboard.GetSinglePress("Back"))
             {
                 ResetWorld(null);
-                ChangeGameState(1);
+                ChangeGameState(2);
             }
 
             if (Globals.keyboard.GetSinglePress("Y"))
@@ -152,11 +154,32 @@ namespace ShooterGame200
                 
             }
 
-            if (user.gold == 150)
+            if (user.gold > 50&&levelId==1)
             {
 
                 ResetWorld(2);
-                user.gold -= 100;
+
+            }
+
+            if (user.gold > 50&&levelId==2)
+            {
+
+                ResetWorld(3);
+               
+            }
+            if (user.gold > 50 && levelId == 3)
+            {
+                if (stop == 0)
+                { 
+                    stop = 1;
+                    GameGlobals.paused = !GameGlobals.paused;
+                }
+            }
+            if (Globals.keyboard.GetSinglePress("Enter")&&user.gold>50&&levelId==3)
+            {
+               
+                ResetWorld(null);
+                ChangeGameState(2);
             }
 
 

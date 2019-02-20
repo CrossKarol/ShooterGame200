@@ -42,25 +42,25 @@ namespace ShooterGame200
         {
             bool checkScoll = false;
 
-            if (Globals.keyboard.GetPress("A"))
+            if (Globals.keyboard.GetPress("A")&&pos.X>-50)
             {
                 pos = new Vector2(pos.X - speed, pos.Y);
                 checkScoll = true;
             }
 
-            if (Globals.keyboard.GetPress("D"))
+            if (Globals.keyboard.GetPress("D")&&pos.X<1250)
             {
                 pos = new Vector2(pos.X + speed, pos.Y);
                 checkScoll = true;
             }
 
-            if (Globals.keyboard.GetPress("W"))
+            if (Globals.keyboard.GetPress("W")&&pos.Y>-50)
             {
                 pos = new Vector2(pos.X, pos.Y - speed);
                 checkScoll = true;
             }
 
-            if (Globals.keyboard.GetPress("S"))
+            if (Globals.keyboard.GetPress("S")&&pos.Y<750)
             {
                 pos = new Vector2(pos.X, pos.Y + speed);
                 checkScoll = true;

@@ -27,9 +27,9 @@ namespace ShooterGame200
    
         PassObject ChangeGameState;
 
-        public GamePlay(PassObject CHANGEGAMESTATE,int c)
+        public GamePlay(PassObject CHANGEGAMESTATE)
         {
-            playState = c;
+            playState = 1;
 
             ChangeGameState = CHANGEGAMESTATE;
 
@@ -49,10 +49,7 @@ namespace ShooterGame200
             {
                 worldMap.Update();
             }
-            else if (playState == 2)
-            {
-                worldMap.Update();
-            }
+           
         }
 
 
@@ -89,11 +86,7 @@ namespace ShooterGame200
             
        
         }
-        public virtual void ChangeWorldTwo(object INFO)
-        {
-
-            world = new World(ChangeWorldTwo, 2, ChangeGameState);
-        }
+       
 
         public virtual void Draw()
         {
@@ -105,10 +98,7 @@ namespace ShooterGame200
             {
                 worldMap.Draw();
             }
-            else if (playState  == 2 )
-            {
-                worldMap.Draw();
-            }
+          
         }
     }
 }

@@ -30,7 +30,7 @@ namespace ShooterGame200
         {
             id = ID;
 
-            gold = 100;
+            gold = 0;
 
             LoadData(DATA);
         }
