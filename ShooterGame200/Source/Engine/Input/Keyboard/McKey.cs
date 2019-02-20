@@ -1,36 +1,23 @@
 ﻿#region Includes
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Input.Touch;
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace ShooterGame200
 {
     public class McKey
     {
-        public int state;
+  
         public string key, print, display;
-
-
+        public int state;
         public McKey(string KEY, int STATE)
         {
-            key = KEY;
             state = STATE;
+            key = KEY;
             MakePrint(key);
         }
 
         public virtual void Update()
         {
             state = 2;
-
         }
 
 
@@ -75,7 +62,6 @@ namespace ShooterGame200
             {
                 tempStr = KEY.Substring(6);
             }
-
 
             print = tempStr;
         }

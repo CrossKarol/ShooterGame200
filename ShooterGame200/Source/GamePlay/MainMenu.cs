@@ -1,18 +1,6 @@
 ﻿#region Includes
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 #endregion
 
 
@@ -21,16 +9,14 @@ namespace ShooterGame200
     public class MainMenu
     {
         public Basic2D bkg;
-        int playState;
 
         public PassObject PlayClickDel, ExitClickDel;
-
+        int playState;
         public List<Button2d> buttons = new List<Button2d>();
 
         PassObject ChangeGameState;
         public MainMenu(PassObject PLAYCLICKDEL, PassObject EXITCLICKDEL, PassObject CHANGEGAMESTATE)
         {
-
           
             PlayClickDel = PLAYCLICKDEL;
             ExitClickDel = EXITCLICKDEL;
@@ -54,7 +40,6 @@ namespace ShooterGame200
         public virtual void Draw()
         {
             bkg.Draw(Vector2.Zero);
-
             for (int i = 0; i < buttons.Count; i++)
             {
                 buttons[i].Draw(new Vector2(600, 400 + 55 * i));

@@ -1,17 +1,6 @@
 ﻿#region Includes
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace ShooterGame200
@@ -19,7 +8,8 @@ namespace ShooterGame200
     public class StillInvisibleProjectile : Projectile2d
     {
 
-        float ticks, currentTick;
+        float ticks;
+        float currentTick;
 
         public StillInvisibleProjectile(Vector2 POS, Vector2 DIMS, AttackableObject OWNER, Vector2 TARGET, int MSEC)
             : base("2d\\Misc\\solid", POS, DIMS, OWNER, TARGET)
@@ -46,8 +36,7 @@ namespace ShooterGame200
                     }
                 }
 
-
-                currentTick++;
+                currentTick=currentTick+1;
             }
         }
 

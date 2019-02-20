@@ -1,18 +1,5 @@
 ﻿#region Includes
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 #endregion
 
 
@@ -25,10 +12,7 @@ namespace ShooterGame200
             : base("2D\\Units\\cockroach-move1", POS, new Vector2(40, 40), new Vector2(8, 1), OWNERID)
         {
             speed = 2.0f;
-
             attackRange = 400;
-
-
             frameAnimations = true;
             currentAnimation = 0;
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 8, 133, 0, "Walk"));

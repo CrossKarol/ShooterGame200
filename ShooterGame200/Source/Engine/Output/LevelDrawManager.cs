@@ -23,11 +23,8 @@ namespace ShooterGame200
     public class LevelDrawManager
     {
         public bool sortRunning;
-
         public int nextId;
-
         public List<DrawSlot> drawables = new List<DrawSlot>();
-
         public McTimer sortTimer = new McTimer(120);
 
         public LevelDrawManager()
@@ -61,7 +58,6 @@ namespace ShooterGame200
                     for(int i=0; i<drawables.Count; i++)
                     {
 
-                        //Resort based on draw layer
                         if(i > 0 && drawables[i].item.drawLayer < drawables[i-1].item.drawLayer)
                         {
                         
@@ -76,8 +72,6 @@ namespace ShooterGame200
                                 }
                             }
                         }
-
-                        //Resort based on Y pos
                         if(i > 0 && drawables[i].item.drawLayer == drawables[i-1].item.drawLayer && drawables[i].item.SortDrawPos.Y < drawables[i-1].item.SortDrawPos.Y)
                         {
                             for(int j=0;j<drawables.Count;j++)
@@ -113,7 +107,6 @@ namespace ShooterGame200
                         add = false;
                     }
                 }
-
                 if(add)
                 {
                     InsertItemByPos( ITEM, DRAWABLE);
@@ -129,7 +122,6 @@ namespace ShooterGame200
         {
             int temp = nextId;
             nextId++;
-
             return temp;
         }
 
@@ -140,7 +132,6 @@ namespace ShooterGame200
             bool added = false;
             for(int i=0; i<drawables.Count; i++)
             {
-                //if(drawables[i].item.drawLayer > ITEM.drawLayer || (drawables[i].item.drawLayer == ITEM.drawLayer && drawables[i].item.SortDrawPos.Y >= ITEM.SortDrawPos.Y))
                 if(drawables[i].item.SortDrawPos.Y >= ITEM.SortDrawPos.Y || (drawables[i].item.drawLayer > ITEM.drawLayer && drawables[i].item.SortDrawPos.Y == ITEM.SortDrawPos.Y))
                 {
                     drawables.Insert(Math.Max(0, i-1), new DrawSlot(ITEM, DRAWABLE));
@@ -177,20 +168,8 @@ namespace ShooterGame200
                     return true;
                 }
             }
-
             return false;
         }
-
-        /*public virtual void SetAlternateDrawFuncById(int ID, PassObject FUNC)
-        {
-            for(int i=0;i<drawables.Count;i++)
-            {
-                if(drawables[i].id == ID)
-                {
-                    drawables[i].AlternateDrawFunc = FUNC;
-                }
-            }
-        }*/
 
         public virtual void Draw()
         {

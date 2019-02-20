@@ -1,18 +1,6 @@
 ﻿#region Includes
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 #endregion
 
 namespace ShooterGame200
@@ -20,12 +8,12 @@ namespace ShooterGame200
     public class Projectile2d : Basic2D
     {
         public bool done;
-
-        public float speed;
-
         public Vector2 direction;
 
         public AttackableObject owner;
+
+        public float speed;
+
 
         public McTimer timer;
 
@@ -33,9 +21,7 @@ namespace ShooterGame200
             : base(PATH, POS, DIMS)
         {
             done = false;
-
             speed = 5.0f;
-
             owner = OWNER;
 
             direction = TARGET - owner.pos;
@@ -49,7 +35,6 @@ namespace ShooterGame200
         public virtual void Update(Vector2 OFFSET, List<AttackableObject> UNITS)
         {
             ChangePosition();
-
             timer.UpdateTimer();
             if (timer.Test())
             {
@@ -60,15 +45,11 @@ namespace ShooterGame200
                 done = true;
             }
         }
-        public virtual void ChangePosition()
-        {
-            pos += direction * speed;
-        }
         public virtual bool HitSomething(List<AttackableObject> UNITS)
         {
-            for (int i=0; i<UNITS.Count; i++)
+            for (int i = 0; i < UNITS.Count; i++)
             {
-                if(owner.ownerId != UNITS[i].ownerId && Globals.GetDistance(pos, UNITS[i].pos)< UNITS[i].hitDist)
+                if (owner.ownerId != UNITS[i].ownerId && Globals.GetDistance(pos, UNITS[i].pos) < UNITS[i].hitDist)
                 {
                     UNITS[i].GetHit(owner, 1);
 
@@ -78,6 +59,11 @@ namespace ShooterGame200
 
             return false;
         }
+        public virtual void ChangePosition()
+        {
+            pos += direction * speed;
+        }
+  
 
 
         public override void Draw(Vector2 OFFSET)

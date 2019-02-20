@@ -1,27 +1,19 @@
 #region Includes
 using System;
-using System.Runtime;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Input.Touch;
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace ShooterGame200
 {
     public class FrameAnimation
     {
-        public bool hasFired;
-        public int frames, currentFrame, maxPasses, currentPass, fireFrame;
-        public string name;
+        public bool firedOn;
         public Vector2 sheet, startFrame, sheetFrame, spriteDims;
         public McTimer frameTimer;
+        public int frames, currentFrame, maxPasses, currentPass, fireFrame;
+        public string name;
+     
 
         public PassObject FireAction;
 
@@ -39,7 +31,7 @@ namespace ShooterGame200
             currentPass = 0;
             name = NAME;
             FireAction = null;
-            hasFired = false;
+            firedOn = false;
 
             fireFrame = 0;
         }
@@ -57,7 +49,7 @@ namespace ShooterGame200
             currentPass = 0;
             name = NAME;
             FireAction = FIREACTION;
-            hasFired = false;
+            firedOn = false;
 
             fireFrame = FIREFRAME;
         }
@@ -114,7 +106,7 @@ namespace ShooterGame200
                         if(currentFrame >= frames)
                         {       
                                 currentFrame = 0;
-                                hasFired = false;
+                                firedOn = false;
                                 sheetFrame = new Vector2(startFrame.X, startFrame.Y);
                         }
                     }
@@ -122,10 +114,10 @@ namespace ShooterGame200
                 }
             }
 
-            if(FireAction != null && fireFrame == currentFrame && !hasFired)
+            if(FireAction != null && fireFrame == currentFrame && !firedOn)
             {
                 FireAction(null);
-                hasFired = true;
+                firedOn = true;
             }
         }
 
@@ -134,7 +126,7 @@ namespace ShooterGame200
             currentFrame = 0;
             currentPass = 0;
             sheetFrame = new Vector2(startFrame.X, startFrame.Y);
-            hasFired = false;
+            firedOn = false;
         }
 
         public bool IsAtEnd()

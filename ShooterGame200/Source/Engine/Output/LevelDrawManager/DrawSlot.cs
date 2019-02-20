@@ -44,13 +44,7 @@ namespace ShooterGame200
         {
             if(drawing)
             {
-
-                item.Draw(offset);
-                
-            }
-            else
-            {
-
+                item.Draw(offset);               
             }
         }
     }

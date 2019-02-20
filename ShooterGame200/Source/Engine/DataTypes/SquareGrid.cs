@@ -1,21 +1,9 @@
 ﻿#region Includes
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-#if WINDOWS_PHONE
-using Microsoft.Xna.Framework.Input.Touch;
-#endif
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace ShooterGame200
@@ -23,13 +11,10 @@ namespace ShooterGame200
     public class SquareGrid
     {
 
-
-        public bool showGrid;
-
-        public Vector2 slotDims, gridDims, physicalStartPos, totalPhysicalDims, currentHoverSlot;
-
         public Basic2D gridImg;
-
+        public Vector2 slotDims, gridDims, physicalStartPos, totalPhysicalDims, currentHoverSlot;
+        public bool showGrid;
+    
 
         public List<GridItem> gridItems = new List<GridItem>();
         public List<List<GridLocation>> slots = new List<List<GridLocation>>();
@@ -37,34 +22,23 @@ namespace ShooterGame200
         public SquareGrid(Vector2 SLOTDIMS, Vector2 STARTPOS, Vector2 TOTALDIMS, XElement DATA)
         {
             showGrid = false;
-
             slotDims = SLOTDIMS;
-
-            //Get all the dims setup
             physicalStartPos = new Vector2((int)STARTPOS.X, (int)STARTPOS.Y);
             totalPhysicalDims = new Vector2((int)(TOTALDIMS.X), (int)(TOTALDIMS.Y));
-
-
             currentHoverSlot = new Vector2(0, 0);
-
             SetBaseGrid(null);
-
             gridImg = new Basic2D("2d\\Misc\\shade", slotDims / 2, new Vector2(slotDims.X - 2, slotDims.Y - 2));
-
             LoadData(DATA);
         }
 
         public virtual void Update(Vector2 OFFSET)
-        {
-
-
+        {      
             currentHoverSlot = GetSlotFromPixel(new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y), -OFFSET);
         }
 
         public virtual void AddGridItem(string PATH, Vector2 LOC)
         {
             gridItems.Add(new GridItem(PATH, GetPosFromLoc(LOC) + slotDims/2, new Vector2(slotDims.X , slotDims.Y), new Vector2(1, 1)));
-
             GetSlotFromLocation(LOC).SetToFilled(true);
         }
 
@@ -86,7 +60,6 @@ namespace ShooterGame200
 
         public virtual Vector2 GetSlotFromPixel(Vector2 PIXEL, Vector2 OFFSET)
         {
-            //This may need a -OFFSET, but meh...
             Vector2 adjustedPos = PIXEL - physicalStartPos + OFFSET;
 
             Vector2 tempVec = new Vector2(Math.Min(Math.Max(0, (int)(adjustedPos.X / slotDims.X)), slots.Count - 1), Math.Min(Math.Max(0, (int)(adjustedPos.Y / slotDims.Y)), slots[0].Count - 1));
@@ -116,25 +89,7 @@ namespace ShooterGame200
         }
 
 
-        public virtual void SetBaseGrid(List<Unit> UNITS)
-        {
-
-
-            gridDims = new Vector2((int)(totalPhysicalDims.X / slotDims.X), (int)(totalPhysicalDims.Y / slotDims.Y));
-
-
-            slots.Clear();
-            for (int i = 0; i < gridDims.X; i++)
-            {
-                slots.Add(new List<GridLocation>());
-                for (int j = 0; j < gridDims.Y; j++)
-                {
-                    slots[i].Add(new GridLocation(1, false));
-                }
-            }
-
-        }
-
+       
         #region A* (A Star)
 
         public List<Vector2> GetPath(Vector2 START, Vector2 END, bool ALLOWDIAGNALS)
@@ -375,13 +330,29 @@ namespace ShooterGame200
 
 
         #endregion
+        public virtual void SetBaseGrid(List<Unit> UNITS)
+        {
+
+
+            gridDims = new Vector2((int)(totalPhysicalDims.X / slotDims.X), (int)(totalPhysicalDims.Y / slotDims.Y));
+
+
+            slots.Clear();
+            for (int i = 0; i < gridDims.X; i++)
+            {
+                slots.Add(new List<GridLocation>());
+                for (int j = 0; j < gridDims.Y; j++)
+                {
+                    slots[i].Add(new GridLocation(1, false));
+                }
+            }
+
+        }
 
         public virtual void DrawGrid(Vector2 OFFSET)
         {
             if (showGrid)
             {
-                //Vector2 topLeft = GetSlotFromPixel((new Vector2(0, 0)) / Globals.zoom  - OFFSET, Vector2.Zero);
-                //Vector2 botRight = GetSlotFromPixel((new Vector2(Globals.screenWidth, Globals.screenHeight)) / Globals.zoom  - OFFSET, Vector2.Zero);
                 Vector2 topLeft = GetSlotFromPixel(new Vector2(0, 0), Vector2.Zero);
                 Vector2 botRight = GetSlotFromPixel(new Vector2(Globals.screenWidth, Globals.screenHeight), Vector2.Zero);
 

@@ -1,16 +1,7 @@
 ﻿#region Includes
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using System.Drawing;
-
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Input.Touch;
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace ShooterGame200
@@ -37,7 +28,7 @@ namespace ShooterGame200
 
             GetMouseAndAdjust();
 
-            //screenLoc = new Vector2((int)(systemCursorPos.X/Globals.screenWidth), (int)(systemCursorPos.Y/Globals.screenHeight));
+       
 
         }
 
@@ -93,14 +84,6 @@ namespace ShooterGame200
         }
 
 
-
-
-        public int GetMouseWheelChange()
-        {
-            return newMouse.ScrollWheelValue - oldMouse.ScrollWheelValue;
-        }
-
-
         public Vector2 GetScreenPos(MouseState MOUSE)
         {
             Vector2 tempVec = new Vector2(MOUSE.Position.X, MOUSE.Position.Y);
@@ -108,6 +91,13 @@ namespace ShooterGame200
 
             return tempVec;
         }
+
+
+        public int GetMouseWheelChange()
+        {
+            return newMouse.ScrollWheelValue - oldMouse.ScrollWheelValue;
+        }
+
 
         public virtual bool LeftClick()
         {

@@ -1,29 +1,15 @@
 ﻿#region Includes
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 #endregion
 
 namespace ShooterGame200
 {
     public class Basic2D
     {
-        public float rot;
-
         public Vector2 pos, dims, frameSize;
-
         public Texture2D myModel;
+        public float rot;
 
 
         public Basic2D(string PATH, Vector2 POS, Vector2 DIMS)
@@ -31,7 +17,6 @@ namespace ShooterGame200
             pos = new Vector2(POS.X, POS.Y);
             dims = new Vector2(DIMS.X, DIMS.Y);
             rot = 0.0f;
-
             myModel = Globals.content.Load<Texture2D>(PATH);
 
         }

@@ -3,23 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 #endregion
 
 namespace ShooterGame200
 {
     public class Player
     {
-        public int id, gold;
+        public int gold;
+        public int id;
         public Hero hero;
         public List<Unit> units = new List<Unit>();
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
@@ -29,9 +21,7 @@ namespace ShooterGame200
         public Player(int ID, XElement DATA)
         {
             id = ID;
-
             gold = 0;
-
             LoadData(DATA);
         }
 
@@ -78,18 +68,18 @@ namespace ShooterGame200
             }
         }
 
-        public virtual void AddBuilding(object INFO)
-        {
-            Building tempBuilding = (Building)INFO;
-            tempBuilding.ownerId = id;
-            buildings.Add((Building)INFO);
-        }
 
         public virtual void AddSpawnPoint(object INFO)
         {
             SpawnPoint tempSpawnPoint = (SpawnPoint)INFO;
             tempSpawnPoint.ownerId = id;
             spawnPoints.Add(tempSpawnPoint);
+        }
+        public virtual void AddBuilding(object INFO)
+        {
+            Building tempBuilding = (Building)INFO;
+            tempBuilding.ownerId = id;
+            buildings.Add((Building)INFO);
         }
 
         public virtual void AddUnit(object INFO)

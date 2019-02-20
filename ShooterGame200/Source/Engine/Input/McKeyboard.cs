@@ -1,15 +1,6 @@
 ﻿#region Includes
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Input.Touch;
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace ShooterGame200
@@ -18,7 +9,6 @@ namespace ShooterGame200
     {
 
         public KeyboardState newKeyboard, oldKeyboard;
-
         public List<McKey> pressedKeys = new List<McKey>(), previousPressedKeys = new List<McKey>();
 
         public McKeyboard()
@@ -29,9 +19,7 @@ namespace ShooterGame200
         public virtual void Update()
         {
             newKeyboard = Keyboard.GetState();
-
             GetPressedKeys();
-
         }
 
         public void UpdateOld()
@@ -67,7 +55,6 @@ namespace ShooterGame200
         public virtual void GetPressedKeys()
         {
             
-
             pressedKeys.Clear();
             for (int i = 0; i < newKeyboard.GetPressedKeys().Length; i++)
             {

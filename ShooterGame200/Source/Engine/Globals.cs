@@ -1,26 +1,15 @@
 ﻿#region Includes
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 
 namespace ShooterGame200
 {
-    public delegate void PassObject(object i);
     public delegate object PassObjectAndReturn(object i);
-
-
+    public delegate void PassObject(object i);
 
     public class Globals
     { 
@@ -29,16 +18,15 @@ namespace ShooterGame200
         public static Random rand = new Random();
 
         public static System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-
+        public static McKeyboard keyboard;
+        public static McMouseControl mouse;
+        public static SoundControl soundControl;
         public static ContentManager content;
         public static SpriteBatch spriteBatch;
 
         public static Effect normalEffect;
 
-
-        public static McKeyboard keyboard;
-        public static McMouseControl mouse;
-        public static SoundControl soundControl;
+      
 
         public static GameTime gameTime;
 
@@ -68,7 +56,7 @@ namespace ShooterGame200
             if (Pos.Y - focus.Y != 0)
             {
                 h = (float)Math.Sqrt(Math.Pow(Pos.X - focus.X, 2) + Math.Pow(Pos.Y - focus.Y, 2));
-                sineTheta = (float)(Math.Abs(Pos.Y - focus.Y) / h); //* ((item.Pos.Y-focus.Y)/(Math.Abs(item.Pos.Y-focus.Y))));
+                sineTheta = (float)(Math.Abs(Pos.Y - focus.Y) / h); 
             }
             else
             {
@@ -78,18 +66,15 @@ namespace ShooterGame200
 
             angle = (float)Math.Asin(sineTheta);
 
-            // Drawing diagonial lines here.
-            //Quadrant 2
+ 
             if (Pos.X - focus.X > 0 && Pos.Y - focus.Y > 0)
             {
                 angle = (float)(Math.PI * 3 / 2 + angle);
             }
-            //Quadrant 3
             else if (Pos.X - focus.X > 0 && Pos.Y - focus.Y < 0)
             {
                 angle = (float)(Math.PI * 3 / 2 - angle);
             }
-            //Quadrant 1
             else if (Pos.X - focus.X < 0 && Pos.Y - focus.Y > 0)
             {
                 angle = (float)(Math.PI / 2 - angle);

@@ -20,8 +20,8 @@ namespace ShooterGame200
 {
     public class DrawSlotUpdatePackage
     {
-        public bool drawing;
         public Vector2 offset;
+        public bool drawing;
 
         public DrawSlotUpdatePackage(Vector2 OFFSET, bool DRAWING)
         {

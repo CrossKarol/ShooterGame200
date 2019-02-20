@@ -1,17 +1,6 @@
 ﻿#region Includes
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework;
 #endregion
 
 namespace ShooterGame200
@@ -20,10 +9,11 @@ namespace ShooterGame200
     {
         protected bool active;
         public bool done;
-
         public AttackableObject owner;
 
         public Effect2d targetEffect;
+
+
 
         public Skill(AttackableObject OWNER)
         {
@@ -34,8 +24,6 @@ namespace ShooterGame200
 
             targetEffect = new TargetingCircle(new Vector2(0, 0), new Vector2(150, 150));
         }
-
-        #region Properties
 
         public bool Active
         {
@@ -55,8 +43,6 @@ namespace ShooterGame200
                 active = value;
             }
         }
-
-        #endregion
 
 
         public virtual void Update(Vector2 OFFSET, Player ENEMY)

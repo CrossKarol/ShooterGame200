@@ -1,28 +1,16 @@
 ﻿#region Includes
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace ShooterGame200
 {
     public class Unit : AttackableObject
     {
-        public Skill currentSkill;
-
+  
         protected Vector2 moveTo;
-
         protected List<Vector2> pathNodes = new List<Vector2>();
+        public Skill currentSkill;
         public List<Skill> skills = new List<Skill>();
 
         public Unit(string PATH, Vector2 POS, Vector2 DIMS, Vector2 FRAMES, int OWNERID)
@@ -37,26 +25,6 @@ namespace ShooterGame200
 
 
             base.Update(OFFSET, ENEMY, GRID);
-        }
-
-        public virtual List<Vector2> FindPath(SquareGrid GRID, Vector2 ENDSLOT)
-        {
-
-            pathNodes.Clear();
-
-
-            Vector2 tempStartSlot = GRID.GetSlotFromPixel(pos, Vector2.Zero);
-
-
-            List<Vector2> tempPath = GRID.GetPath(tempStartSlot, ENDSLOT, true);
-
-            if (tempPath == null || tempPath.Count == 0)
-            {
-
-            }
-
-
-            return tempPath;
         }
 
         public virtual void MoveUnit()
@@ -78,6 +46,26 @@ namespace ShooterGame200
 
 
         }
+        public virtual List<Vector2> FindPath(SquareGrid GRID, Vector2 ENDSLOT)
+        {
+
+            pathNodes.Clear();
+
+
+            Vector2 tempStartSlot = GRID.GetSlotFromPixel(pos, Vector2.Zero);
+
+
+            List<Vector2> tempPath = GRID.GetPath(tempStartSlot, ENDSLOT, true);
+
+            if (tempPath == null || tempPath.Count == 0)
+            {
+
+            }
+
+
+            return tempPath;
+        }
+
 
 
         public override void Draw(Vector2 OFFSET)

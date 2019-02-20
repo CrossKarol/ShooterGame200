@@ -3,15 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 
@@ -23,28 +15,28 @@ namespace ShooterGame200
 
         public Vector2 offset;
 
-        
+        public AIPlayer aIPlayer;
+
+        public SquareGrid grid;
 
         public UI ui;
         public int stop ;
 
         public User user;
-        public AIPlayer aIPlayer;
-
-        public SquareGrid grid;
 
         public TileBkg2d bkg;
 
         public LevelDrawManager levelDrawManager;
-
-        public List<Projectile2d> projectiles = new List<Projectile2d>();
         public List<Effect2d> effects = new List<Effect2d>();
         public List<AttackableObject> allObjects = new List<AttackableObject>();
+        public List<Projectile2d> projectiles = new List<Projectile2d>();
+
         public List<SceneItem> sceneItems = new List<SceneItem>();
 
 
-        PassObject ResetWorld, ChangeGameState;
-        PassObject ChangeWorldTwo;
+        PassObject ChangeGameState;
+        PassObject ResetWorld;
+      PassObject ChangeWorldTwo;
 
 
         public World(PassObject RESETWORLD,int LEVELID, PassObject CHANGEGAMESTATE)
@@ -154,20 +146,20 @@ namespace ShooterGame200
                 
             }
 
-            if (user.gold > 50&&levelId==1)
+            if ((user.gold > 50 || user.buildings.Count<=0) &&levelId==1)
             {
 
                 ResetWorld(2);
 
             }
 
-            if (user.gold > 50&&levelId==2)
+            if ((user.gold > 75 || user.buildings.Count <= 0) && levelId==2)
             {
 
                 ResetWorld(3);
                
             }
-            if (user.gold > 50 && levelId == 3)
+            if ((user.gold > 100 || user.buildings.Count <= 0) && levelId == 3)
             {
                 if (stop == 0)
                 { 
@@ -212,7 +204,6 @@ namespace ShooterGame200
                 aIPlayer.AddBuilding(tempBuilding);
             }
 
-          //  aIPlayer.AddUnit((Mob)INFO);
         }
 
 
@@ -248,14 +239,9 @@ namespace ShooterGame200
             {
                 aIPlayer.AddUnit(tempUnit);  
             }
-
-        //    aIPlayer.AddUnit((Mob)INFO);
         }
 
-        public virtual void AddProjectile(object INFO)
-        {
-            projectiles.Add((Projectile2d)INFO);
-        }
+    
 
 
         public virtual void AddSpawnPoint(object INFO)
@@ -273,7 +259,10 @@ namespace ShooterGame200
             }
 
         }
-
+        public virtual void AddProjectile(object INFO)
+        {
+            projectiles.Add((Projectile2d)INFO);
+        }
         public virtual void CheckScroll(object INFO)
         {
             Vector2 tempPos = (Vector2)INFO;
@@ -361,10 +350,7 @@ namespace ShooterGame200
             user.Draw(offset);
             aIPlayer.Draw(offset);
 
-            /*for (int i=0; i < sceneItems.Count; i++)
-            {
-                sceneItems[i].Draw(offset);
-            }*/
+  
             if(levelDrawManager != null)
             {
                 levelDrawManager.Draw();

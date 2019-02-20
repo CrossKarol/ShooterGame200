@@ -3,16 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 #endregion
 
 
@@ -21,18 +12,16 @@ namespace ShooterGame200
     public class SpawnPoint : AttackableObject
     {
 
-        public List<MobChoice> mobChoices = new List<MobChoice>();
-
         public McTimer spawnTimer = new McTimer(2400);
+        public List<MobChoice> mobChoices = new List<MobChoice>();
 
         public SpawnPoint(string PATH, Vector2 POS, Vector2 DIMS, Vector2 FRAMES, int OWNERID, XElement DATA) 
             : base(PATH, POS, DIMS, FRAMES, OWNERID)
         {
-            dead = false;
-
-            health = 3;
+         
+             health = 3;
             healthMax = health;
-
+            dead = false;
             LoadData(DATA);
 
             hitDist = 35.0f;

@@ -3,16 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 #endregion
 
 namespace ShooterGame200
@@ -20,12 +11,11 @@ namespace ShooterGame200
     public class WorldMap
     {
 
-        public Basic2D bkg;
-
         public List<Button2d> levels = new List<Button2d>();
 
         PassObject ChangeGameState;
 
+        public Basic2D bkg;
         public WorldMap(PassObject CHANGEGAMESTATE)
         {
             ChangeGameState = CHANGEGAMESTATE;
@@ -44,11 +34,7 @@ namespace ShooterGame200
             }
         }
 
-        public virtual void LevelClicked(object INFO)
-        {
-            ChangeGameState(INFO);
-        }
-
+   
         public virtual void LoadData()
         {
             XDocument xml = XDocument.Load("XML\\Levels.xml");
@@ -61,6 +47,11 @@ namespace ShooterGame200
                 levels.Add(new Button2d("2D\\Misc\\SimpleBtn", new Vector2(Convert.ToInt32(levelList[i].Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(levelList[i].Element("Pos").Element("y").Value, Globals.culture)), new Vector2(150, 40), "Fonts\\Arial16", levelList[i].Element("name").Value, LevelClicked, levelList[i].Attribute("id").Value));
             }
         }
+        public virtual void LevelClicked(object INFO)
+        {
+            ChangeGameState(INFO);
+        }
+
 
 
         public virtual void Draw()

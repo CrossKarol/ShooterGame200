@@ -19,8 +19,8 @@ namespace ShooterGame200
 {
     public class McTimer
     {
-        public bool goodToGo;
         protected int mSec;
+        public bool goodToGo;
         protected TimeSpan timer = new TimeSpan();
         
 
@@ -44,8 +44,6 @@ namespace ShooterGame200
         {
             get { return (int)timer.TotalMilliseconds; }
         }
-
-        
 
         public void UpdateTimer()
         {
@@ -90,27 +88,22 @@ namespace ShooterGame200
             MSec = NEWTIMER;
             goodToGo = false;
         }
+        public virtual XElement ReturnXML()
+        {
+            XElement xml = new XElement("Timer",
+                                    new XElement("mSec", mSec),
+                                    new XElement("timer", Timer));
 
+            return xml;
+        }
+        public void SetTimer(TimeSpan TIME)
+        {
+            timer = TIME;
+        }
         public void ResetToZero()
         {
             timer = TimeSpan.Zero;
             goodToGo = false;
-        }
-
-        public virtual XElement ReturnXML()
-        {
-            XElement xml= new XElement("Timer",
-                                    new XElement("mSec", mSec),
-                                    new XElement("timer", Timer));
-
-
-
-            return xml;
-        }
-
-        public void SetTimer(TimeSpan TIME)
-        {
-            timer = TIME;
         }
 
         public virtual void SetTimer(int MSEC)

@@ -1,17 +1,5 @@
 ﻿#region Includes
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace ShooterGame200
@@ -19,21 +7,16 @@ namespace ShooterGame200
     public class Hero : Unit
     {
         public SquareGrid squareGrid;
-
         public Hero(string PATH, Vector2 POS, Vector2 DIMS, Vector2 FRAMES, int OWNERID)
             : base(PATH, POS, DIMS, FRAMES, OWNERID)
         {
             speed = 2.0f;
-
-
             health = 10;
             healthMax = health;
-
             frameAnimations = true;
             currentAnimation = 0;
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 8, 33, 0, "Walk"));
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 1, 33, 0, "Stand"));
-
             skills.Add(new FlameWave(this));
             skills.Add(new Blink(this));
         }
@@ -108,13 +91,6 @@ namespace ShooterGame200
                     currentSkill = null;
                 }
             }
-
-            //if(Globals.mouse.RightClick())
-            //{
-            //    currentSkill.Reset();
-            //    currentSkill = null;
-            //}
-
 
 
             base.Update(OFFSET, ENEMY, GRID);
