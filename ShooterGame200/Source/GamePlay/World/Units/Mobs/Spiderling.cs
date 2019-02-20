@@ -25,9 +25,13 @@ namespace ShooterGame200
         public McTimer spawnTimer;
 
         public Spiderling(Vector2 POS, Vector2 FRAMES, int OWNERID) 
-            : base("2D\\Units\\Mobs\\Spider", POS, new Vector2(25, 25), FRAMES,  OWNERID)
+            : base("2D\\Units\\timberman-move", POS, new Vector2(30, 30), new Vector2(8, 1),  OWNERID)
         {
             speed = 2.5f;
+
+            frameAnimations = true;
+            currentAnimation = 0;
+            frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 8, 133, 0, "Walk"));
         }
 
         public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)

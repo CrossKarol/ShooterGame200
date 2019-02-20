@@ -33,7 +33,7 @@ namespace ShooterGame200
 
             frameAnimations = true;
             currentAnimation = 0;
-            frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 4, 133, 0, "Walk"));
+            frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 8, 133, 0, "Walk"));
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 1, 133, 0, "Stand"));
 
             skills.Add(new FlameWave(this));
@@ -121,32 +121,40 @@ namespace ShooterGame200
 
             base.Update(OFFSET, ENEMY, GRID);
         }
-        public void SetPosition(Vector2 position)
-        {
-            position = new Vector2(pos.X, pos.Y);
+        //public void SetPosition(Vector2 position)
+        //{
+        //    position = new Vector2(pos.X, pos.Y);
 
-            _collisionBox = new Rectangle((int)(pos.X - (Globals.screenWidth / 2)), (int)(pos.Y - (Globals.screenHeight / 2)), Globals.screenWidth, Globals.screenHeight);
-        }
+        //    _collisionBox = new Rectangle((int)(pos.X - (Globals.screenWidth / 2)), (int)(pos.Y - (Globals.screenHeight / 2)), Globals.screenWidth, Globals.screenHeight);
+        //}
 
 
-        private void CollisionCheck(Vector2 newPosition)
-        {
+        //private void CollisionCheck(Vector2 newPosition)
+        //{
             
-            Vector2 oldPosition = new Vector2(pos.X, pos.Y);
-            SetPosition(newPosition);
+        //    Vector2 oldPosition = new Vector2(pos.X, pos.Y);
+        //    SetPosition(newPosition);
 
-            foreach (GridItem b in squareGrid.gridItems)
-            {
-                if (_collisionBox.Intersects(b.CollisionBox))
-                {
-                    SetPosition(oldPosition);
+        //    foreach (GridItem b in squareGrid.gridItems)
+        //    {
+        //        if (_collisionBox.Intersects(b.CollisionBox))
+        //        {
+        //            SetPosition(oldPosition);
 
-                    break;
-                }
-            }
-        }
+        //            break;
+        //        }
+        //    }
+        //}
         public override void Draw(Vector2 OFFSET)
         {
+
+            Globals.normalEffect.Parameters["xSize"].SetValue(1.0f);
+            Globals.normalEffect.Parameters["ySize"].SetValue(1.0f);
+            Globals.normalEffect.Parameters["xDraw"].SetValue(1.0f);
+            Globals.normalEffect.Parameters["yDraw"].SetValue(1.0f);
+            Globals.normalEffect.Parameters["filterColor"].SetValue(Color.White.ToVector4());
+            Globals.normalEffect.CurrentTechnique.Passes[0].Apply();
+
             base.Draw(OFFSET);
         }
     }

@@ -26,9 +26,11 @@ namespace ShooterGame200
 
         GamePlay gamePlay;
 
-        MainMenu mainMenu; 
-
+        MainMenu mainMenu;
+        World world;
+        WorldMap worldMap;
         Basic2D cursor;
+
 
         public Main()
         {
@@ -75,9 +77,12 @@ namespace ShooterGame200
 
             Globals.keyboard = new McKeyboard();
             Globals.mouse = new McMouseControl();
-
-            mainMenu = new MainMenu(ChangeGameState, ExitGame);
-            gamePlay = new GamePlay(ChangeGameState);
+            
+            mainMenu = new MainMenu(ChangeGameState, ExitGame, ChangeGameState);
+            gamePlay = new GamePlay(ChangeGameState,2);
+            worldMap = new WorldMap(ChangeGameState);
+           
+            
 
             Globals.soundControl = new SoundControl("Audio\\RomanBuilderMusic_Loop");
         }
@@ -114,6 +119,10 @@ namespace ShooterGame200
             {
                 gamePlay.Update();
             }
+            else if (Globals.gameState == 2)
+            {
+                worldMap.Update();
+            }
 
             Globals.keyboard.UpdateOld();
             Globals.mouse.UpdateOld();
@@ -148,6 +157,10 @@ namespace ShooterGame200
             else if (Globals.gameState == 1)
             {
                 gamePlay.Draw();
+            }
+            else if (Globals.gameState == 2)
+            {
+                worldMap.Draw();
             }
 
             Globals.normalEffect.Parameters["xSize"].SetValue((float)cursor.myModel.Bounds.Width);

@@ -21,16 +21,20 @@ namespace ShooterGame200
     public class MainMenu
     {
         public Basic2D bkg;
+        int playState;
 
         public PassObject PlayClickDel, ExitClickDel;
 
         public List<Button2d> buttons = new List<Button2d>();
 
-
-        public MainMenu(PassObject PLAYCLICKDEL, PassObject EXITCLICKDEL)
+        PassObject ChangeGameState;
+        public MainMenu(PassObject PLAYCLICKDEL, PassObject EXITCLICKDEL, PassObject CHANGEGAMESTATE)
         {
+
+          
             PlayClickDel = PLAYCLICKDEL;
             ExitClickDel = EXITCLICKDEL;
+            ChangeGameState = CHANGEGAMESTATE;
 
             bkg = new Basic2D("2D\\UI\\Backgrounds\\MainMenuBkg", new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(Globals.screenWidth, Globals.screenHeight));
 

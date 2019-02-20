@@ -43,6 +43,7 @@ namespace ShooterGame200
 
 
         PassObject ResetWorld, ChangeGameState;
+        PassObject ChangeWorldTwo;
 
 
         public World(PassObject RESETWORLD,int LEVELID, PassObject CHANGEGAMESTATE)
@@ -50,6 +51,8 @@ namespace ShooterGame200
 
             levelId = LEVELID;
             ResetWorld = RESETWORLD;
+            ChangeWorldTwo = RESETWORLD;
+
             ChangeGameState = CHANGEGAMESTATE;
 
             levelDrawManager = new LevelDrawManager();
@@ -138,7 +141,24 @@ namespace ShooterGame200
             if (Globals.keyboard.GetSinglePress("Back"))
             {
                 ResetWorld(null);
-                ChangeGameState(0);
+                ChangeGameState(1);
+            }
+
+            if (Globals.keyboard.GetSinglePress("Y"))
+            {
+              
+                    ResetWorld(null);
+                    ChangeGameState(2);
+                
+            }
+            if (Globals.keyboard.GetSinglePress("C"))
+            {
+                if (user.gold >= 100)
+                {
+                    ResetWorld(2);
+                    user.gold -= 100;
+                }
+
             }
 
             if (Globals.keyboard.GetSinglePress("Space"))

@@ -148,13 +148,20 @@ namespace ShooterGame200
 
             if (DATA.Element("Hero") != null)
             {
-                hero = new Hero("2D\\Units\\HeroSheet", new Vector2(Convert.ToInt32(DATA.Element("Hero").Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(DATA.Element("Hero").Element("Pos").Element("y").Value, Globals.culture)), new Vector2(64, 64), new Vector2(4, 1), id);
+                hero = new Hero("2D\\Units\\chitiniac-move", new Vector2(Convert.ToInt32(DATA.Element("Hero").Element("Pos").Element("x").Value, Globals.culture), Convert.ToInt32(DATA.Element("Hero").Element("Pos").Element("y").Value, Globals.culture)), new Vector2(64, 64), new Vector2(8, 1), id);
             }
         }
 
         public virtual void Draw(Vector2 OFFSET)
         {
-            if(hero != null)
+            Globals.normalEffect.Parameters["xSize"].SetValue(1.0f);
+            Globals.normalEffect.Parameters["ySize"].SetValue(1.0f);
+            Globals.normalEffect.Parameters["xDraw"].SetValue(1.0f);
+            Globals.normalEffect.Parameters["yDraw"].SetValue(1.0f);
+            Globals.normalEffect.Parameters["filterColor"].SetValue(Color.White.ToVector4());
+            Globals.normalEffect.CurrentTechnique.Passes[0].Apply();
+
+            if (hero != null)
             {
                 hero.Draw(OFFSET);
             }

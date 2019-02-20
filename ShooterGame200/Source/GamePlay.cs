@@ -24,17 +24,16 @@ namespace ShooterGame200
         World world;
 
         WorldMap worldMap;
-
+   
         PassObject ChangeGameState;
 
-        public GamePlay(PassObject CHANGEGAMESTATE)
+        public GamePlay(PassObject CHANGEGAMESTATE,int c)
         {
-            playState = 1;
+            playState = c;
 
             ChangeGameState = CHANGEGAMESTATE;
 
             ResetWorld(null);
-
             worldMap = new WorldMap(ChangePlayState);
 
         }
@@ -50,8 +49,19 @@ namespace ShooterGame200
             {
                 worldMap.Update();
             }
-        }   
+            else if (playState == 2)
+            {
+                worldMap.Update();
+            }
+        }
 
+
+        public virtual void ChangeWorld(object INFO)
+        {
+            int levelId = 2;
+
+            world = new World(ResetWorld, levelId, ChangeGameState);
+        }
         public virtual void ChangePlayState(object INFO)
         {
             playState = 0;
@@ -61,13 +71,28 @@ namespace ShooterGame200
 
         public virtual void ResetWorld(object INFO)
         {
-            int levelId = 1;
-            if(world !=null)
+            try
             {
-                levelId = world.levelId;
+                int a = Convert.ToInt32(INFO.ToString());
+                world = new World(ResetWorld, a, ChangeGameState);
             }
+            catch(Exception e)
+            {
+                int levelId = 1;
+                if (world != null)
+                {
+                    levelId = world.levelId;
+                }
 
-            world = new World(ResetWorld, levelId, ChangeGameState);
+                world = new World(ResetWorld, levelId, ChangeGameState);
+            }
+            
+       
+        }
+        public virtual void ChangeWorldTwo(object INFO)
+        {
+
+            world = new World(ChangeWorldTwo, 2, ChangeGameState);
         }
 
         public virtual void Draw()
@@ -77,6 +102,10 @@ namespace ShooterGame200
                 world.Draw(Vector2.Zero);
             }
             else if (playState == 1)
+            {
+                worldMap.Draw();
+            }
+            else if (playState  == 2 )
             {
                 worldMap.Draw();
             }

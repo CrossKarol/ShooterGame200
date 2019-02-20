@@ -29,6 +29,7 @@ namespace ShooterGame200
             : base(PATH, POS, DIMS, FRAMES, OWNERID)
         {
             moveTo = new Vector2(POS.X, POS.Y);
+
         }
 
         public override void Update(Vector2 OFFSET, Player ENEMY, SquareGrid GRID)

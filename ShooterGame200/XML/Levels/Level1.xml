@@ -24,6 +24,7 @@
       </Pos>
       <mob rate="50">Imp</mob>
       <mob rate="20">Spider</mob>
+      <mob rate="50">AncientImp</mob>
       <timerAdd>1000</timerAdd>
     </SpawnPoint>
     <SpawnPoint>
